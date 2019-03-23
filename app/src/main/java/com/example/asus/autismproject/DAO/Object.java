@@ -13,6 +13,8 @@ public class Object {
     private String description;
     private String image;
     private String voice;
+    private String find_voice;
+
     private String categorie;
 
     @NonNull
@@ -48,10 +50,22 @@ public class Object {
         this.categorie = categorie;
     }
 
-    public Object(@NonNull String description, String image, String voice, String categorie) {
+    public String getFind_voice() {
+        return find_voice;
+    }
+
+    public void setFind_voice(String find_voice) {
+        this.find_voice = find_voice;
+    }
+
+
+
+    public Object(@NonNull String description, String image, String voice,String find_voice, String categorie) {
         this.description = description;
         this.image = image;
         this.voice = voice;
         this.categorie = categorie;
+        this.find_voice= find_voice;
+
     }
 }
