@@ -5,6 +5,7 @@ import com.example.emobadaragaminglib.Components.Sprite;
 public class Myobject11 extends Sprite {
     public Myobject11(Game game, Image image, int x, int y, int height, int width) {
         super(game, image, x, y, height, width);
+        setStatic(false);
     }
 
 }

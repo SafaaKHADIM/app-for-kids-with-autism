@@ -7,7 +7,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.BIND_INPUT_METHOD" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -25,8 +27,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
+
         <activity android:name=".AddObject">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +40,9 @@
         <activity android:name=".ActivityLevel1" />
         <activity android:name=".ActivityLevel2" />
         <activity android:name=".ActivityLevel3" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivityLevel1" />
+        <activity android:name=".MainActivityLevel2" />
+        <activity android:name=".MainActivityLevel3"></activity>
     </application>
 
 </manifest>

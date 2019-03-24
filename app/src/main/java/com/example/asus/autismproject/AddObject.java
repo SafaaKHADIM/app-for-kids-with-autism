@@ -548,7 +548,7 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         myspinner.setAdapter(adapter);
-       
+
 
     }
 
