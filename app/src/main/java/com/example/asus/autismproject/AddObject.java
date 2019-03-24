@@ -1,30 +1,54 @@
 package com.example.asus.autismproject;
 
 import android.Manifest;
+import android.arch.persistence.room.Room;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.TypefaceProvider;
+import com.example.asus.autismproject.DAO.DAO;
+import com.example.asus.autismproject.DAO.Database;
+import com.example.asus.autismproject.DAO.Object;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import info.androidhive.fontawesome.FontDrawable;
 
 
-public class AddObject extends AppCompatActivity {
+public class AddObject extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
 
 
 
@@ -34,17 +58,27 @@ public class AddObject extends AppCompatActivity {
 
 
     //Declare variables
-    FloatingActionButton record,stopRecord,play,stop,record2,stopRecord2,play2,stop2;
+    public static Database database;
+    FloatingActionButton record,stopRecord,play,stop,record2,stopRecord2,play2,stop2,button;
     String pathSave1="",pathSave2="";
     MediaRecorder mediaRecorder1,mediaRecorder2;
     MediaPlayer mediaPlayer1,mediaPlayer2;
+    ImageView imageView;
+    File photoFile = null;
 
+
+
+    String mCurrentPhotoPath;
+    private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
+    static final int CAPTURE_IMAGE_REQUEST = 1;
     final int REQUEST_PERMISSION_CODE=1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_object);
         TypefaceProvider.registerDefaultIconSets();
+        database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
+
         // font awsome
         FontDrawable drawable1 = new FontDrawable(this, R.string.fa_microchip_solid, true, false);
         FontDrawable drawable2 = new FontDrawable(this, R.string.fa_microphone_slash_solid, true, false);
@@ -56,7 +90,9 @@ public class AddObject extends AppCompatActivity {
         drawable3.setTextColor(ContextCompat.getColor(this, android.R.color.white));
         drawable4.setTextColor(ContextCompat.getColor(this, android.R.color.white));
 
-
+        ///pour la capture d'image
+        imageView =  findViewById(R.id.imageView);
+        button = findViewById(R.id.btnCaptureImage);
 
 
         if(!checkPermissionFromDevice())
@@ -233,9 +269,60 @@ public class AddObject extends AppCompatActivity {
             }
         });
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    captureImage();
+                }
+                else
+                {
+                    captureImage2();
+                }
+            }
+        });
+
+
+
+
+        //spinner : doit afficher les categories déja existantes dans la base de données
+        ArrayList<String> arraySpinner = new ArrayList<String>();
+        arraySpinner.add("Add new category");
+        List<Object> objs = AddObject.database._Dao()._getObject();
+        for(Object myobject: objs) {
+            String mycategorie = myobject.getCategorie();
+            arraySpinner.add(mycategorie);
+        }
+        Spinner myspinner = (Spinner) findViewById(R.id.categories);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myspinner.setAdapter(adapter);
+
+
+
+
+        myspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                if(selectedItem.equals("Add new category"))
+                {
+                    openDialog();
+                }
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
 
 
     }
+
+
+
 
     private void setupMediaRecorder1() {
         mediaRecorder1 =new MediaRecorder();
@@ -268,6 +355,13 @@ public class AddObject extends AppCompatActivity {
                     Toast.makeText(this,"Permission granted",Toast.LENGTH_SHORT).show();
             }
             break;
+            case 0: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    captureImage();
+                }
+            }
+            break;
         }
     }
 
@@ -277,5 +371,190 @@ public class AddObject extends AppCompatActivity {
         return write_external_storage_result==PackageManager.PERMISSION_GRANTED && record_audio_result==PackageManager.PERMISSION_GRANTED;
 
     }
+
+
+
+    /* Capture Image function for 4.4.4 and lower. Not tested for Android Version 3 and 2 */
+    private void captureImage2() {
+
+        try {
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            photoFile = createImageFile4();
+            if(photoFile!=null)
+            {
+                displayMessage(getBaseContext(),photoFile.getAbsolutePath());
+                Log.i("Mayank",photoFile.getAbsolutePath());
+                Uri photoURI  = Uri.fromFile(photoFile);
+                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(cameraIntent, CAPTURE_IMAGE_REQUEST);
+            }
+        }
+        catch (Exception e)
+        {
+            displayMessage(getBaseContext(),"Camera is not available."+e.toString());
+        }
+    }
+
+    private void captureImage()
+    {
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+        }
+        else
+        {
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                // Create the File where the photo should go
+                try {
+
+                    photoFile = createImageFile();
+                    displayMessage(getBaseContext(),photoFile.getAbsolutePath());
+                    Log.i("Mayank",photoFile.getAbsolutePath());
+
+                    // Continue only if the File was successfully created
+                    if (photoFile != null) {
+                        Uri photoURI = FileProvider.getUriForFile(this,
+                                "com.example.asus.autismproject.fileprovider",
+                                photoFile);
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                        startActivityForResult(takePictureIntent, CAPTURE_IMAGE_REQUEST);
+                    }
+                } catch (Exception ex) {
+                    // Error occurred while creating the File
+                    displayMessage(getBaseContext(),ex.getMessage().toString());
+                }
+
+
+            }else
+            {
+                displayMessage(getBaseContext(),"Nullll");
+            }
+        }
+
+
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        //Bundle extras = data.getExtras();
+        //Bitmap imageBitmap = (Bitmap) extras.get("data");
+        //imageView.setImageBitmap(imageBitmap);
+
+        if (requestCode == CAPTURE_IMAGE_REQUEST && resultCode == RESULT_OK) {
+            Bitmap myBitmap = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+            imageView.setImageBitmap(myBitmap);
+            imageView.setRotation((float) -90);
+        }
+        else
+        {
+            displayMessage(getBaseContext(),"Request cancelled or something went wrong.");
+        }
+    }
+
+    private File createImageFile4()
+    {
+        // External sdcard location
+        File mediaStorageDir = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                IMAGE_DIRECTORY_NAME);
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                displayMessage(getBaseContext(),"Unable to create directory.");
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                + "IMG_" + timeStamp + ".jpg");
+
+        return mediaFile;
+
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void displayMessage(Context context, String message)
+    {
+        Toast.makeText(context,message,Toast.LENGTH_LONG).show();
+    }
+
+
+
+
+    public void create(View view) {
+        int a=0;
+        EditText desc =this.findViewById(R.id.decription);
+        EditText cat =this.findViewById(R.id.categories);
+
+        String description = desc.getText().toString();
+        String categorie = cat.getText().toString();
+        List<Object> objs = AddObject.database._Dao()._getObject();
+        for(Object obj: objs){
+            String _desc =obj.getDescription();
+            if(_desc.equals(description) ){
+                a=1;
+            }
+        }
+
+        if(a==0) {
+            Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
+            database._Dao()._add_object(myobject);
+            }
+        else{
+            Toast.makeText(this,"ce nom d'objet  existe déja",Toast.LENGTH_LONG).show();
+            Intent intent1=new Intent(this, AddObject.class);
+            this.startActivity(intent1);
+        }
+    }
+
+    public void openDialog() {
+        ExampleDialog exampleDialog = new ExampleDialog();
+        exampleDialog.show(getSupportFragmentManager(), "example dialog");
+    }
+
+    @Override
+    public void applyTexts(String category) {
+
+        ArrayList<String> arraySpinner = new ArrayList<String>();
+        arraySpinner.add("Add new category");
+        arraySpinner.add(category);
+        List<Object> objs = AddObject.database._Dao()._getObject();
+        for(Object myobject: objs) {
+            String mycategorie = myobject.getCategorie();
+            arraySpinner.add(mycategorie);
+        }
+        Spinner myspinner = (Spinner) findViewById(R.id.categories);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myspinner.setAdapter(adapter);
+       
+
+    }
+
+
+
+
+
 }
 
