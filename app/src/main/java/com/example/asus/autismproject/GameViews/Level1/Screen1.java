@@ -31,10 +31,10 @@ public class Screen1 extends Screen{
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject11 = new Myobject11(game,Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
-        myobject12 = new Myobject12(game,Object2.avatar,500,500,100,100);
-        myobject13 = new Myobject13(game,Object3.avatar,1000,1000,100,100);
-        myobject14 =new Myobject14(game,Object4.avatar,1500,1500,100,100);
+        myobject11 = new Myobject11(game,Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
+        myobject12 = new Myobject12(game,Object2.avatar,500,500,300,300);
+        myobject13 = new Myobject13(game,Object3.avatar,1000,1000,300,300);
+        myobject14 =new Myobject14(game,Object4.avatar,1500,1500,300,300);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(myobject11);
         addSprite(myobject12);

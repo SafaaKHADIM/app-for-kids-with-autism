@@ -15,6 +15,7 @@ import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
 import com.example.emobadaragaminglib.Base.Graphics;
+import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Implementation.AndroidGame;
 import com.example.emobadaragaminglib.Implementation.AndroidImage;
@@ -47,14 +48,14 @@ public class MainActivityLevel1 extends AndroidGame {
         //generer des nombres aleatoires
         Random rand = new Random();
         int number1 = rand.nextInt(i);
-        number1 += 1;
+        //number1 += 1;
         /// il faut ajouter la condition pour qu il ne choisit pas le même objet c a d il faut que number1 soit diff de number2.....
         int number2 = rand.nextInt(i);
-        number2 += 1;
+        //number2 += 1;
         int number3 = rand.nextInt(i);
-        number3 += 1;
+       // number3 += 1;
         int number4 = rand.nextInt(i);
-        number4 += 1;
+       // number4 += 1;
 
         Object Myobject1 = objcts.get(number1);
         Object Myobject2 = objcts.get(number2);
@@ -74,13 +75,13 @@ public class MainActivityLevel1 extends AndroidGame {
 
         try {
             Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri1);
-            Object1.avatar = new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
-            Bitmap bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri2);
-            Object1.avatar = new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
+           Object1.avatar =(Image) new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
+           Bitmap bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri2);
+            Object2.avatar = new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
             Bitmap bitmap3 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri3);
-            Object1.avatar = new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
+            Object3.avatar = new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
             Bitmap bitmap4 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri4);
-            Object1.avatar = new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
+            Object4.avatar = new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
 
         } catch (IOException e) {
             e.printStackTrace();

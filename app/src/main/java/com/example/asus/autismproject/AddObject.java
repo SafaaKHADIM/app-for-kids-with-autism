@@ -501,13 +501,14 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
 
 
 
-    public void create(View view) {
+    public void add(View view) {
         int a=0;
         EditText desc =this.findViewById(R.id.decription);
-        EditText cat =this.findViewById(R.id.categories);
-
+        //EditText cat =this.findViewById(R.id.categories);
+        Spinner cat = (Spinner) findViewById(R.id.categories);
         String description = desc.getText().toString();
-        String categorie = cat.getText().toString();
+        //String categorie = cat.getText().toString();
+        String categorie = cat.getSelectedItem().toString();
         List<Object> objs = AddObject.database._Dao()._getObject();
         for(Object obj: objs){
             String _desc =obj.getDescription();
@@ -518,7 +519,10 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
 
         if(a==0) {
             Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
+            Log.i("safaa",mCurrentPhotoPath);
             database._Dao()._add_object(myobject);
+            Intent intent1=new Intent(this, MainActivityLevel1.class);
+            this.startActivity(intent1);
             }
         else{
             Toast.makeText(this,"ce nom d'objet  existe déja",Toast.LENGTH_LONG).show();
