@@ -50,6 +50,8 @@ public class Screen1 extends Screen{
 
     @Override
     public void render(float deltaTime) {
+        Graphics g = game.getGraphics();
+        g.drawARGB(255,0,0,0);
 
     }
 

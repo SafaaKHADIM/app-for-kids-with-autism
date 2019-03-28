@@ -24,15 +24,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.TypefaceProvider;
-import com.example.asus.autismproject.DAO.DAO;
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
 
@@ -521,7 +518,7 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
             Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
             Log.i("safaa",mCurrentPhotoPath);
             database._Dao()._add_object(myobject);
-            Intent intent1=new Intent(this, MainActivityLevel1.class);
+            Intent intent1=new Intent(this, ActivityLevel1.class);
             this.startActivity(intent1);
             }
         else{
