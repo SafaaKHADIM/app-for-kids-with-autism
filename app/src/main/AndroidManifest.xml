@@ -32,7 +32,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".AddObject">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,10 +42,11 @@
         <activity android:name=".ActivityLevel1" />
         <activity android:name=".ActivityLevel2" />
         <activity android:name=".ActivityLevel3" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".AddObject" />
         <activity android:name=".ActivitySettings" />
         <activity android:name=".Levels" />
-        <activity android:name=".ActivityLanguage"></activity>
+        <activity android:name=".ActivityLanguage" />
+        <activity android:name=".ActivityCategory"></activity>
     </application>
 
 </manifest>

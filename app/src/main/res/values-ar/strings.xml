@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">autismProject</string>
+    <string name="Category">الفئة</string>
+    <string name="add_object">إضافة جسم</string>
+    <string name="choose_bakghround">اختر خلفية</string>
+    <string name="choose_language">اختر اللغة</string>
+    <string name="view_score">عرض النتيجة</string>
+    <string name="play">لعب</string>
+    <string name="settings">الإعدادات</string>
+    <string name="level1">مستوى 1</string>
+    <string name="level2">مستوى 2</string>
+    <string name="level3">مستوى 3</string>
+    <string name="anglais">الإنجليزية</string>
+    <string name="francais">الفرنسية</string>
+    <string name="arabe">عربى</string>
+    <string name="ok">ok</string>
+    <string name="Description">وصف</string>
+    <string name="Categories">فئة</string>
+    <string name="Answer">إجابة</string>
+    <string name="Question">سؤال</string>
+</resources>

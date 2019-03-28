@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">autismProject</string>
+    <string name="Category">Catégorie</string>
+    <string name="add_object">Ajouter un objet</string>
+    <string name="choose_bakghround">Choisir le background</string>
+    <string name="choose_language">Choisir la langue</string>
+    <string name="view_score">Visulaiser le score</string>
+    <string name="play">Jouer</string>
+    <string name="settings">Réglages</string>
+    <string name="level1">Niveau 1</string>
+    <string name="level2">Niveau 2</string>
+    <string name="level3">Niveau 3</string>
+    <string name="anglais">Anglais</string>
+    <string name="francais">Francais</string>
+    <string name="arabe">Arabe</string>
+    <string name="ok">ok</string>
+    <string name="Description">Description</string>
+    <string name="Categories">Catégories</string>
+    <string name="Answer">Réponse</string>
+    <string name="Question">Question</string>
+</resources>

@@ -1,5 +1,6 @@
 package com.example.asus.autismproject;
 
+import android.arch.persistence.room.Room;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -8,12 +9,14 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
 import com.example.asus.autismproject.GameViews.Level1.Screen1;
 import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
+import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Base.Screen;
@@ -28,34 +31,35 @@ import java.util.Random;
 
 
 public class ActivityLevel1 extends AndroidGame {
-
+    public static Database database;
     @Override
     public Screen getInitScreen() {
         //Initialize the assets you will be working with on your screens here.
         //It is better to have all of them loaded, until you have performance problems then, umm,yeah
         //We will have to figure that out :')
 
+        database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
+
+        //hand
+        hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
 
 
 
 
 
+       // List<Object> objcts = AddObject.database._Dao()._getObject();
+        List<Object> objcts = ActivityLevel1.database._Dao()._getObject();
 
-
-        List<Object> objcts = AddObject.database._Dao()._getObject();
 
         int i= objcts.size();
         //generer des nombres aleatoires
         Random rand = new Random();
         int number1 = rand.nextInt(i);
-        //number1 += 1;
         /// il faut ajouter la condition pour qu il ne choisit pas le même objet c a d il faut que number1 soit diff de number2.....
         int number2 = rand.nextInt(i);
-        //number2 += 1;
         int number3 = rand.nextInt(i);
-       // number3 += 1;
         int number4 = rand.nextInt(i);
-       // number4 += 1;
+
 
         Object Myobject1 = objcts.get(number1);
         Object Myobject2 = objcts.get(number2);

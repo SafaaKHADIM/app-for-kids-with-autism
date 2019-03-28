@@ -15,6 +15,7 @@ import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
+import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Implementation.AndroidGame;
@@ -39,7 +40,8 @@ public class ActivityLevel2 extends AndroidGame {
 
 
 
-
+        //hand
+        hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
 
 
         List<Object> objcts = AddObject.database._Dao()._getObject();
@@ -48,14 +50,11 @@ public class ActivityLevel2 extends AndroidGame {
         //generer des nombres aleatoires
         Random rand = new Random();
         int number1 = rand.nextInt(i);
-        number1 += 1;
         /// il faut ajouter la condition pour qu il ne choisit pas le même objet c a d il faut que number1 soit diff de number2.....
         int number2 = rand.nextInt(i);
-        number2 += 1;
         int number3 = rand.nextInt(i);
-        number3 += 1;
         int number4 = rand.nextInt(i);
-        number4 += 1;
+
 
         Object Myobject1 = objcts.get(number1);
         Object Myobject2 = objcts.get(number2);

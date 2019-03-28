@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">autismProject</string>
+    <string name="Category">Category</string>
+    <string name="add_object">add object</string>
+    <string name="choose_bakghround">choose background</string>
+    <string name="choose_language">choose language</string>
+    <string name="view_score">view score</string>
+    <string name="play">play</string>
+    <string name="settings">settings</string>
+    <string name="level1">level 1</string>
+    <string name="level2">level 2</string>
+    <string name="level3">level 3</string>
+    <string name="anglais">english</string>
+    <string name="francais">french</string>
+    <string name="arabe">arabic</string>
+    <string name="ok">ok</string>
+    <string name="Description">Description</string>
+    <string name="Categories">Categories</string>
+    <string name="Answer">Answer</string>
+    <string name="Question">Question</string>
+
+
+
+
+
 </resources>

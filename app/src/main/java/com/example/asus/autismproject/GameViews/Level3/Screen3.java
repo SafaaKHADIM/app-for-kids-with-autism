@@ -5,6 +5,7 @@ import com.example.asus.autismproject.Sprites.Level3.Myobject31;
 import com.example.asus.autismproject.Sprites.Level3.Myobject32;
 import com.example.asus.autismproject.Sprites.Level3.Myobject33;
 import com.example.asus.autismproject.Sprites.Level3.Myobject34;
+import com.example.asus.autismproject.Sprites.direction;
 import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
@@ -19,6 +20,7 @@ public class Screen3 extends Screen{
     private Myobject32 myobject32;
     private Myobject33 myobject33;
     private Myobject34 myobject34;
+    private direction direction_main ;
     private int mX ;
     private int mY ;
     private int myHack=0; //used to get some time before re-rendering
@@ -28,6 +30,8 @@ public class Screen3 extends Screen{
     public Screen3(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
+        //hand
+        direction_main = new direction(game,Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
