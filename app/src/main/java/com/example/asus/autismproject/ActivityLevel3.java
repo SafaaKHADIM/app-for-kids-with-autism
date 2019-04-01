@@ -1,5 +1,6 @@
 package com.example.asus.autismproject;
 
+import android.arch.persistence.room.Room;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -8,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
 import com.example.asus.autismproject.GameViews.Level1.Screen1;
 import com.example.asus.autismproject.GameViews.Level3.Screen3;
@@ -29,13 +31,14 @@ import java.util.Random;
 
 
 public class ActivityLevel3 extends AndroidGame {
-
+    public static Database database;
     @Override
     public Screen getInitScreen() {
         //Initialize the assets you will be working with on your screens here.
         //It is better to have all of them loaded, until you have performance problems then, umm,yeah
         //We will have to figure that out :')
 
+        database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
 
 
         //hand

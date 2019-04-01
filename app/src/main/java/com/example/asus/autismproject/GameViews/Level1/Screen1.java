@@ -29,7 +29,10 @@ public class Screen1 extends Screen{
     private int lecture3=0;
     private int lecture4=0;
     private int myHack=0; //used to get some time before re-rendering
-
+    private int myHack1=0;
+    private int myHack2=0;
+    private int myHack3=0;
+    private int myHack4=0;
 
 
     public Screen1(Game game) {
@@ -63,40 +66,52 @@ public class Screen1 extends Screen{
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
-           /*if(lecture1==0) {
+        if(myHack==10) {
+           if(lecture1==0 ) {
                mX = myobject11.getX();
                mY = myobject11.getY();
                direction_main.setX(mX);
                direction_main.setY(mY);
                Object1.voice_answer.play(1);
                lecture1=1;
+
            }
-        if(lecture2==0) {
-            mX = myobject12.getX();
-            mY = myobject12.getY();
-            direction_main.setX(mX);
-            direction_main.setY(mY);
-            Object2.voice_answer.play(1);
-            lecture2=1;
-        }
-        if(lecture3==0) {
+
+            if(lecture2==0 && myHack2==30) {
+                mX = myobject12.getX();
+                mY = myobject12.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_answer.play(1);
+                lecture2=1;
+                myHack2=0;
+            }
+            myHack2++;
+
+        if(lecture3==0 && myHack3==60) {
             mX = myobject13.getX();
             mY = myobject13.getY();
             direction_main.setX(mX);
             direction_main.setY(mY);
             Object3.voice_answer.play(1);
             lecture3=1;
+            myHack3=0;
         }
-        if(lecture4==0) {
+        myHack3++;
+        if(lecture4==0 && myHack4==90) {
             mX = myobject14.getX();
             mY = myobject14.getY();
             direction_main.setX(mX);
             direction_main.setY(mY);
             Object4.voice_answer.play(1);
             lecture4=1;
+            myHack4=0;
         }
+        myHack4++;
+            myHack=0;
+        }
+        myHack++;
 
-*/
 
     }
 
