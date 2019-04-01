@@ -31,19 +31,20 @@ public class Screen3 extends Screen{
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
         //hand
-        direction_main = new direction(game,Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
+        direction_main = new direction(Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject31 = new Myobject31(game,Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
-        myobject32 = new Myobject32(game,Object2.avatar,500,500,300,300);
-        myobject33 = new Myobject33(game,Object3.avatar,1000,1000,300,300);
-        myobject34 =new Myobject34(game,Object4.avatar,1500,1500,300,300);
+        myobject31 = new Myobject31(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject32 = new Myobject32(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject33 = new Myobject33(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject34 =new Myobject34(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(myobject31);
         addSprite(myobject32);
         addSprite(myobject33);
         addSprite(myobject34);
+        addSprite(direction_main);
 
         Log.d(TAG, "Constructor Called");
 
@@ -54,6 +55,20 @@ public class Screen3 extends Screen{
 
     @Override
     public void render(float deltaTime) {
+        Graphics g = game.getGraphics();
+        g.drawARGB(255,0,0,0);
+        if(object1GotHit()){
+            Object1.voice_answer.play(1);
+        }
+        if(object2GotHit()){
+            Object2.voice_answer.play(1);
+        }
+        if(object3GotHit()){
+            Object3.voice_answer.play(1);
+        }
+        if(object4GotHit()){
+            Object4.voice_answer.play(1);
+        }
 
     }
 
@@ -88,6 +103,22 @@ public class Screen3 extends Screen{
     @Override
     public void backButton() {
         pause();
+    }
+    boolean object1GotHit(){
+        if(direction_main.contain(myobject31.getX(),myobject31.getY())) return true;
+        return false;
+    }
+    boolean object2GotHit(){
+        if(direction_main.contain(myobject32.getX(),myobject32.getY())) return true;
+        return false;
+    }
+    boolean object3GotHit(){
+        if(direction_main.contain(myobject33.getX(),myobject33.getY())) return true;
+        return false;
+    }
+    boolean object4GotHit(){
+        if(direction_main.contain(myobject34.getX(),myobject34.getY())) return true;
+        return false;
     }
 
 

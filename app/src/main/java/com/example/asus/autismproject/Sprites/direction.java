@@ -4,8 +4,8 @@ import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Components.Sprite;
 
 public class direction extends Sprite{
-    public direction(Game game, Image image, int x, int y, int height, int width) {
-        super(game, image, x, y, height, width);
+    public direction( Image image, int x, int y, int height, int width) {
+        super(image, x, y, height, width);
         setStatic(false);
     }
 }

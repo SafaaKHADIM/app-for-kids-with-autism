@@ -41,7 +41,7 @@ public class ActivityLevel1 extends AndroidGame {
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
 
         //hand
-        hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
+      //  hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
 
 
 
@@ -114,7 +114,7 @@ public class ActivityLevel1 extends AndroidGame {
         Object3._category=Myobject3.getCategorie();
         Object4._category=Myobject4.getCategorie();
 
-
+        hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
 
 
         //The method is going to

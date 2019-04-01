@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -75,7 +77,11 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
         setContentView(R.layout.activity_add_object);
         TypefaceProvider.registerDefaultIconSets();
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
-
+        ConstraintLayout constraintLayout =findViewById(R.id.layout);
+        AnimationDrawable animationDrawable =(AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
         // font awsome
         FontDrawable drawable1 = new FontDrawable(this, R.string.fa_microchip_solid, true, false);
         FontDrawable drawable2 = new FontDrawable(this, R.string.fa_microphone_slash_solid, true, false);

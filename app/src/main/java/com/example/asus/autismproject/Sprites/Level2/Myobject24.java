@@ -4,8 +4,8 @@ import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Components.Sprite;
 
 public class Myobject24 extends Sprite{
-    public Myobject24(Game game, Image image, int x, int y, int height, int width) {
-        super(game, image, x, y, height, width);
-        setStatic(false);
+    public Myobject24( Image image, int x, int y, int height, int width) {
+        super( image, x, y, height, width);
+        //setStatic(false);
     }
 }
