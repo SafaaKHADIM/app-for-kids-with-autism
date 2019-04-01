@@ -19,6 +19,7 @@ import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
 import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Graphics;
+import com.example.emobadaragaminglib.Base.Image;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Implementation.AndroidGame;
 import com.example.emobadaragaminglib.Implementation.AndroidImage;
@@ -28,6 +29,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+
+import id.zelory.compressor.Compressor;
 
 
 public class ActivityLevel3 extends AndroidGame {
@@ -44,6 +47,7 @@ public class ActivityLevel3 extends AndroidGame {
         //hand
         hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
 
+        hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
 
 
 
@@ -77,7 +81,7 @@ public class ActivityLevel3 extends AndroidGame {
         Uri imageUri4 = Uri.fromFile(new File(Myobject4.getImage()));
 
         try {
-            Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri1);
+           /* Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri1);
             Object1.avatar = new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
             Bitmap bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri2);
             Object1.avatar = new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
@@ -85,6 +89,16 @@ public class ActivityLevel3 extends AndroidGame {
             Object1.avatar = new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
             Bitmap bitmap4 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),imageUri4);
             Object1.avatar = new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
+*/
+
+            Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Object1.avatar =(Image) new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
+            Bitmap bitmap2 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Object2.avatar =(Image) new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
+            Bitmap bitmap3 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Object3.avatar =(Image) new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
+            Bitmap bitmap4 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Object4.avatar =(Image) new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -24,6 +24,14 @@ public class Screen3 extends Screen{
     private int mX ;
     private int mY ;
     private int myHack=0; //used to get some time before re-rendering
+    private int myHack1=0;
+    private int myHack2=0;
+    private int myHack3=0;
+    private int myHack4=0;
+    private int lecture1=0;
+    private int lecture2=0;
+    private int lecture3=0;
+    private int lecture4=0;
 
 
 
@@ -57,24 +65,61 @@ public class Screen3 extends Screen{
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
-        if(object1GotHit()){
-            Object1.voice_answer.play(1);
+
+        if(myHack==10) {
+            if(lecture1==0 ) {
+                mX = myobject31.getX();
+                mY = myobject31.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object1.voice_answer.play(1);
+                lecture1=1;
+
+            }
+
+            if(lecture2==0 && myHack2==30) {
+                mX = myobject32.getX();
+                mY = myobject32.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_answer.play(1);
+                lecture2=1;
+                myHack2=0;
+            }
+            myHack2++;
+
+            if(lecture3==0 && myHack3==60) {
+                mX = myobject33.getX();
+                mY = myobject33.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_answer.play(1);
+                lecture3=1;
+                myHack3=0;
+            }
+            myHack3++;
+            if(lecture4==0 && myHack4==90) {
+                mX = myobject34.getX();
+                mY = myobject34.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_answer.play(1);
+                lecture4=1;
+                myHack4=0;
+            }
+            myHack4++;
+            myHack=0;
         }
-        if(object2GotHit()){
-            Object2.voice_answer.play(1);
-        }
-        if(object3GotHit()){
-            Object3.voice_answer.play(1);
-        }
-        if(object4GotHit()){
-            Object4.voice_answer.play(1);
-        }
+        myHack++;
+
+
 
     }
 
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
+
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
+import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
@@ -24,6 +25,25 @@ public class Screen2 extends Screen{
     private int mX ;
     private int mY ;
     private int myHack=0; //used to get some time before re-rendering
+    private int myHack1=0;
+    private int myHack2=0;
+    private int myHack3=0;
+    private int myHack4=0;
+    private int myHack5=0;
+    private int myHack6=0;
+    private int myHack7=0;
+    private int myHack8=0;
+
+    private int lecture1=0;
+    private int lecture2=0;
+    private int lecture3=0;
+    private int lecture4=0;
+    private int lecture5=0;
+    private int lecture6=0;
+    private int lecture7=0;
+    private int lecture8=0;
+
+
 
 
 
@@ -57,6 +77,129 @@ public class Screen2 extends Screen{
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
+
+        if(myHack==10) {
+            if(lecture1==0 ) {
+                mX = myobject21.getX();
+                mY = myobject21.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object1.voice_answer.play(1);
+                lecture1=1;
+
+            }
+
+            if(lecture2==0 && myHack2==30) {
+                mX = myobject22.getX();
+                mY = myobject22.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_answer.play(1);
+                lecture2=1;
+                myHack2=0;
+            }
+            myHack2++;
+
+            if(lecture3==0 && myHack3==60) {
+                mX = myobject23.getX();
+                mY = myobject23.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_answer.play(1);
+                lecture3=1;
+                myHack3=0;
+            }
+            myHack3++;
+            if(lecture4==0 && myHack4==90) {
+                mX = myobject24.getX();
+                mY = myobject24.getY();
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_answer.play(1);
+                lecture4=1;
+                myHack4=0;
+            }
+            myHack4++;
+            if(lecture5==0 && myHack5==120) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object1.voice_question.play(1);
+
+
+                if(myHack1==10){
+                    if(object1GotHit() ){
+                        hand.voice_right.play(1);
+                        lecture5=1;
+                    }
+                    myHack1=0;
+                }
+                else{
+                    myHack1++;
+                }
+                myHack5=0;
+            }
+            myHack5++;
+            if(lecture6==0 && myHack6==160) {
+
+
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_question.play(1);
+                lecture6=1;
+                myHack6=0;
+            }
+            myHack6++;
+            if(lecture7==0 && myHack7==200) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_question.play(1);
+                lecture7=1;
+                myHack7=0;
+            }
+            myHack7++;
+            if(lecture8==0 && myHack8==240) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_question.play(1);
+                lecture8=1;
+                myHack8=0;
+            }
+            myHack8++;
+
+
+
+
+
+
+
+
+
+
+
+            myHack=0;
+        }
+        myHack++;
+
+
+
+
+
+
+
+
+    }
+
+    @Override
+    public void handleDragging(int x, int y, int pointer) {
+        super.handleDragging(x, y, pointer);
         if(object1GotHit()){
             Object1.voice_answer.play(1);
         }
@@ -69,12 +212,6 @@ public class Screen2 extends Screen{
         if(object4GotHit()){
             Object4.voice_answer.play(1);
         }
-
-    }
-
-    @Override
-    public void handleDragging(int x, int y, int pointer) {
-        super.handleDragging(x, y, pointer);
     }
 
     @Override

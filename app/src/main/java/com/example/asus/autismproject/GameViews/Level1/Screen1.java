@@ -1,6 +1,8 @@
 package com.example.asus.autismproject.GameViews.Level1;
+import android.media.MediaPlayer;
 import android.util.Log;
 
+import com.example.asus.autismproject.R;
 import com.example.asus.autismproject.Sprites.Level1.Myobject11;
 import com.example.asus.autismproject.Sprites.Level1.Myobject12;
 import com.example.asus.autismproject.Sprites.Level1.Myobject13;
@@ -14,8 +16,10 @@ import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
+import com.example.emobadaragaminglib.Implementation.AndroidGame;
+import com.example.emobadaragaminglib.Implementation.AndroidSound;
 
-public class Screen1 extends Screen{
+public class Screen1 extends Screen  {
     private final String TAG = "Screen1";
     private Myobject11 myobject11;
     private Myobject12 myobject12;
@@ -28,11 +32,19 @@ public class Screen1 extends Screen{
     private int lecture2=0;
     private int lecture3=0;
     private int lecture4=0;
+    private int lecture5=0;
+    private int lecture6=0;
+    private int lecture7=0;
+    private int lecture8=0;
     private int myHack=0; //used to get some time before re-rendering
     private int myHack1=0;
     private int myHack2=0;
     private int myHack3=0;
     private int myHack4=0;
+    private int myHack5=0;
+    private int myHack6=0;
+    private int myHack7=0;
+    private int myHack8=0;
 
 
     public Screen1(Game game) {
@@ -108,9 +120,72 @@ public class Screen1 extends Screen{
             myHack4=0;
         }
         myHack4++;
+            /*if(lecture5==0 && myHack5==120) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object1.voice_question.play(1);
+
+
+                if(myHack1==10){
+                if(object1GotHit() ){
+                    hand.voice_right.play(1);
+                    lecture5=1;
+                }
+                myHack1=0;
+                }
+                else{
+                    myHack1++;
+                }
+                myHack5=0;
+            }
+            myHack5++;
+            if(lecture6==0 && myHack6==160) {
+
+
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_question.play(1);
+                lecture6=1;
+                myHack6=0;
+            }
+            myHack6++;
+            if(lecture7==0 && myHack5==200) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_question.play(1);
+                lecture7=1;
+                myHack7=0;
+            }
+            myHack7++;
+            if(lecture8==0 && myHack8==240) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_question.play(1);
+                lecture8=1;
+                myHack8=0;
+            }
+            myHack8++;
+*/
+
+
+
+
+
+
             myHack=0;
         }
         myHack++;
+
+
+
 
 
     }
@@ -120,6 +195,7 @@ public class Screen1 extends Screen{
         super.handleDragging(x, y, pointer);
         if(object1GotHit()){
             Object1.voice_answer.play(1);
+            hand.voice_right.play(1);
         }
         if(object2GotHit()){
             Object2.voice_answer.play(1);
