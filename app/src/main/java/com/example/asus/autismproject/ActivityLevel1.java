@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Random;
 
 import id.zelory.compressor.Compressor;
-import pl.droidsonroids.gif.GifImageView;
+//import pl.droidsonroids.gif.GifImageView;
 
 
 public class ActivityLevel1 extends AndroidGame {
@@ -101,6 +101,7 @@ public class ActivityLevel1 extends AndroidGame {
         //hand
         hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
         hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
+        hand.voice_false =  (AndroidSound) getAudio().createSound(R.raw.create);
         //background
         background.avatar= getGraphics().newImage(R.drawable.board1,Graphics.ImageFormat.ARGB8888,getResources());
         //hamtaro characters

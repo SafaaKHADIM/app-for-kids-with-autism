@@ -35,6 +35,11 @@ public class Screen1 extends Screen  {
     private int lecture6=0;
     private int lecture7=0;
     private int lecture8=0;
+    private int lecture9=0;
+    private int lecture10=0;
+    private int lecture11=0;
+    private int lecture12=0;
+
     private int myHack=0; //used to get some time before re-rendering
     private int myHack1=0;
     private int myHack2=0;
@@ -44,6 +49,14 @@ public class Screen1 extends Screen  {
     private int myHack6=0;
     private int myHack7=0;
     private int myHack8=0;
+    private int myHack9=0;
+    private int myHack10=0;
+    private int myHack11=0;
+    private int myHack12=0;
+    private int question1=0;
+    private int question2=0;
+    private int question3=0;
+    private int question4=0;
  //   private Sprite bac;
  // private Context context;
 
@@ -131,28 +144,138 @@ public class Screen1 extends Screen  {
         myHack4++;
 
         //-------------------------------------------------------------------
-            if(lecture5==0 && myHack5==120) {
+ //____________________________________________________________________________1rst question_________________________________________
+            if(lecture5==0 && myHack5==60) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
                 Object1.voice_question.play(1);
-
-
-                if(myHack1==10){
-                if(object1GotHit() ){
-                    hand.voice_right.play(1);
-                    lecture5=1;
-                }
-                myHack1=0;
-                }
-                else{
-                    myHack1++;
-                }
-                myHack5=0;
+                 question1=1;
             }
             myHack5++;
-            if(lecture6==0 && myHack6==160) {
+            if(lecture6==0 && myHack6>=65 && question1==1) {
+                myHack7=60; myHack9=60; myHack11=60;
+                if(object1GotHit() && question1==1){
+                    hand.voice_right.play(1);
+                    question1=0;
+                }
+                if((object2GotHit() || object3GotHit() || object4GotHit()) && question1==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack5=59;
+                }
+
+            }
+            myHack6++;
+ //_______________________________________________________________________________________________________________ 2nd question______________________________________________
+
+            if(lecture7==0 && myHack7==65) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_question.play(1);
+                question2=1;
+            }
+            myHack7++;
+            if(lecture8==0 && myHack8>=65 && question2==1) {
+                myHack9=60; myHack11=60;
+                if(object2GotHit() && question2==1){
+                    hand.voice_right.play(1);
+                    question2=0;
+                }
+                if((object1GotHit() || object3GotHit() || object4GotHit()) && question2==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack7=64;
+                }
+
+            }
+            myHack8++;
+
+
+
+
+  //_________________________________________________________________3rd question_____________________________________________________________
+
+            if(lecture9==0 && myHack9==70) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_question.play(1);
+                question3=1;
+            }
+            myHack9++;
+            if(lecture10==0 && myHack10>=65 && question3==1) {
+                myHack11=60;
+                if(object3GotHit() && question3==1){
+                    hand.voice_right.play(1);
+                    question3=0;
+                }
+                if((object2GotHit() || object1GotHit() || object4GotHit()) && question3==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack9=69;
+                }
+
+            }
+            myHack10++;
+   //_________________________________________________________________________________4th question__________________________________________________
+
+
+            if(lecture11==0 && myHack11==75) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_question.play(1);
+                question4=1;
+            }
+            myHack11++;
+            if(lecture12==0 && myHack12>=65 && question4==1) {
+                if(object4GotHit() && question4==1){
+                    hand.voice_right.play(1);
+                    question4=0;
+                }
+                if((object2GotHit() || object3GotHit() || object1GotHit()) && question4==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack11=74;
+                }
+
+            }
+            myHack12++;
+
+          //___________________________________________________end of questions_____________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           /* if(lecture6==0 && myHack6==80) {
 
 
                 mX = 0;
@@ -174,7 +297,7 @@ public class Screen1 extends Screen  {
                 myHack7=0;
             }
             myHack7++;
-            if(lecture8==0 && myHack8==240) {
+            if(lecture8==0 && myHack8==215) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
@@ -183,7 +306,7 @@ public class Screen1 extends Screen  {
                 lecture8=1;
                 myHack8=0;
             }
-            myHack8++;
+            myHack8++;*/
         //--------------------------------------------------------------------------------------------------
 
 
@@ -205,9 +328,11 @@ public class Screen1 extends Screen  {
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
-        if(object1GotHit()){
-            Object1.voice_answer.play(1);
-           // hand.voice_right.play(1);
+       /* if(object1GotHit() && question1==1){
+            hand.voice_right.play(1);
+        }
+        if(object2GotHit() || object3GotHit() || object4GotHit() || question1==1){
+            hand.voice_false.play(1);
         }
         if(object2GotHit()){
             Object2.voice_answer.play(1);
@@ -219,7 +344,7 @@ public class Screen1 extends Screen  {
             Object4.voice_answer.play(1);
         }
 
-
+*/
 
     }
 

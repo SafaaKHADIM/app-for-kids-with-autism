@@ -8,107 +8,326 @@ import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
+import com.example.asus.autismproject.assets.background;
+import com.example.asus.autismproject.assets.hamtaro_character_1;
+import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
+import java.util.Random;
 
-public class Screen3 extends Screen{
+public class Screen3 extends Screen  {
     private final String TAG = "Screen3";
-    private Myobject myobject31;
-    private Myobject myobject32;
-    private Myobject myobject33;
-    private Myobject myobject34;
+    private Myobject myobject;
+    private Myobject myobject12;
+    private Myobject myobject13;
+    private Myobject myobject14;
+    private Myobject _background;
+    private Myobject maxwell;
     private direction direction_main ;
+
     private int mX ;
     private int mY ;
+    private int lecture1=0;
+    private int lecture2=0;
+    private int lecture3=0;
+    private int lecture4=0;
+    private int lecture5=0;
+    private int lecture6=0;
+    private int lecture7=0;
+    private int lecture8=0;
+    private int lecture9=0;
+    private int lecture10=0;
+    private int lecture11=0;
+    private int lecture12=0;
+
     private int myHack=0; //used to get some time before re-rendering
     private int myHack1=0;
     private int myHack2=0;
     private int myHack3=0;
     private int myHack4=0;
-    private int lecture1=0;
-    private int lecture2=0;
-    private int lecture3=0;
-    private int lecture4=0;
+    private int myHack5=0;
+    private int myHack6=0;
+    private int myHack7=0;
+    private int myHack8=0;
+    private int myHack9=0;
+    private int myHack10=0;
+    private int myHack11=0;
+    private int myHack12=0;
+    private int question1=0;
+    private int question2=0;
+    private int question3=0;
+    private int question4=0;
+    //   private Sprite bac;
+    // private Context context;
 
 
 
     public Screen3(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
-        //hand
-        direction_main = new direction(Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject31 = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject32 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject33 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject34 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject13 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject14 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        //hand
+        direction_main = new direction(hand.avatar,0,0,150,150);
+        _background = new Myobject(background.avatar,0,0,game.getScreenHeight(),game.getScreenWidth());
+        maxwell = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
+
         //Now that everything is good let's add the Sprite to the list that we have.
-        addSprite(myobject31);
-        addSprite(myobject32);
-        addSprite(myobject33);
-        addSprite(myobject34);
+        addSprite(_background);
+        addSprite(maxwell);
+        addSprite(myobject);
+        addSprite(myobject12);
+        addSprite(myobject13);
+        addSprite(myobject14);
         addSprite(direction_main);
+
 
         Log.d(TAG, "Constructor Called");
 
 
 
 
+
     }
+
 
     @Override
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
+       int i=4;
+        Random rand = new Random();
+        int number1 = rand.nextInt(i);
+        if(number1==0){
+            myobject.setX(myobject12.getX());
+            myobject.setY(myobject12.getY());
+            myobject12.setX(myobject13.getX());
+            myobject12.setY(myobject13.getY());
+            myobject13.setX(myobject14.getX());
+            myobject13.setY(myobject14.getY());
+            myobject14.setX(myobject.getX());
+            myobject14.setY(myobject.getY());
+
+        }
+        if(number1==1){
+            myobject.setX(myobject13.getX());
+            myobject.setY(myobject13.getY());
+            myobject12.setX(myobject14.getX());
+            myobject12.setY(myobject14.getY());
+            myobject13.setX(myobject.getX());
+            myobject13.setY(myobject.getY());
+            myobject14.setX(myobject12.getX());
+            myobject14.setY(myobject12.getY());
+
+        }
+        if(number1==2){
+            myobject.setX(myobject14.getX());
+            myobject.setY(myobject14.getY());
+            myobject12.setX(myobject13.getX());
+            myobject12.setY(myobject13.getY());
+            myobject13.setX(myobject12.getX());
+            myobject13.setY(myobject12.getY());
+            myobject14.setX(myobject.getX());
+            myobject14.setY(myobject.getY());
+
+        }
+        if(number1==3){
+            myobject.setX(myobject12.getX());
+            myobject.setY(myobject12.getY());
+            myobject12.setX(myobject.getX());
+            myobject12.setY(myobject.getY());
+            myobject13.setX(myobject14.getX());
+            myobject13.setY(myobject14.getY());
+            myobject14.setX(myobject.getX());
+            myobject14.setY(myobject.getY());
+
+        }
 
         if(myHack==10) {
-            if(lecture1==0 ) {
-                mX = myobject31.getX();
-                mY = myobject31.getY();
+
+
+            //____________________________________________________________________________1rst question_________________________________________
+            if(lecture5==0 && myHack5==60) {
+                mX = 0;
+                mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
-                Object1.voice_answer.play(1);
-                lecture1=1;
+                Object1.voice_question.play(1);
+                question1=1;
+            }
+            myHack5++;
+            if(lecture6==0 && myHack6>=65 && question1==1) {
+                myHack7=60; myHack9=60; myHack11=60;
+                if(object1GotHit() && question1==1){
+                    hand.voice_right.play(1);
+                    question1=0;
+                }
+                if((object2GotHit() || object3GotHit() || object4GotHit()) && question1==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack5=59;
+                }
 
             }
+            myHack6++;
+            //_______________________________________________________________________________________________________________ 2nd question______________________________________________
 
-            if(lecture2==0 && myHack2==30) {
-                mX = myobject32.getX();
-                mY = myobject32.getY();
+            if(lecture7==0 && myHack7==65) {
+                mX = 0;
+                mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
-                Object2.voice_answer.play(1);
-                lecture2=1;
-                myHack2=0;
+                Object2.voice_question.play(1);
+                question2=1;
             }
-            myHack2++;
+            myHack7++;
+            if(lecture8==0 && myHack8>=65 && question2==1) {
+                myHack9=60; myHack11=60;
+                if(object2GotHit() && question2==1){
+                    hand.voice_right.play(1);
+                    question2=0;
+                }
+                if((object1GotHit() || object3GotHit() || object4GotHit()) && question2==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack7=64;
+                }
 
-            if(lecture3==0 && myHack3==60) {
-                mX = myobject33.getX();
-                mY = myobject33.getY();
+            }
+            myHack8++;
+
+
+
+
+            //_________________________________________________________________3rd question_____________________________________________________________
+
+            if(lecture9==0 && myHack9==70) {
+                mX = 0;
+                mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
-                Object3.voice_answer.play(1);
-                lecture3=1;
-                myHack3=0;
+                Object3.voice_question.play(1);
+                question3=1;
             }
-            myHack3++;
-            if(lecture4==0 && myHack4==90) {
-                mX = myobject34.getX();
-                mY = myobject34.getY();
+            myHack9++;
+            if(lecture10==0 && myHack10>=65 && question3==1) {
+                myHack11=60;
+                if(object3GotHit() && question3==1){
+                    hand.voice_right.play(1);
+                    question3=0;
+                }
+                if((object2GotHit() || object1GotHit() || object4GotHit()) && question3==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack9=69;
+                }
+
+            }
+            myHack10++;
+            //_________________________________________________________________________________4th question__________________________________________________
+
+
+            if(lecture11==0 && myHack11==75) {
+                mX = 0;
+                mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
-                Object4.voice_answer.play(1);
-                lecture4=1;
-                myHack4=0;
+                Object4.voice_question.play(1);
+                question4=1;
             }
-            myHack4++;
+            myHack11++;
+            if(lecture12==0 && myHack12>=65 && question4==1) {
+                if(object4GotHit() && question4==1){
+                    hand.voice_right.play(1);
+                    question4=0;
+                }
+                if((object2GotHit() || object3GotHit() || object1GotHit()) && question4==1){
+                    hand.voice_false.play(1);
+                    mX = 0;
+                    mY = 0;
+                    direction_main.setX(mX);
+                    direction_main.setY(mY);
+                    myHack11=74;
+                }
+
+            }
+            myHack12++;
+
+            //___________________________________________________end of questions_____________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           /* if(lecture6==0 && myHack6==80) {
+
+
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object2.voice_question.play(1);
+                lecture6=1;
+                myHack6=0;
+            }
+            myHack6++;
+            if(lecture7==0 && myHack5==200) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object3.voice_question.play(1);
+                lecture7=1;
+                myHack7=0;
+            }
+            myHack7++;
+            if(lecture8==0 && myHack8==215) {
+                mX = 0;
+                mY = 0;
+                direction_main.setX(mX);
+                direction_main.setY(mY);
+                Object4.voice_question.play(1);
+                lecture8=1;
+                myHack8=0;
+            }
+            myHack8++;*/
+            //--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
             myHack=0;
         }
         myHack++;
+
+
 
 
 
@@ -117,6 +336,23 @@ public class Screen3 extends Screen{
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
+       /* if(object1GotHit() && question1==1){
+            hand.voice_right.play(1);
+        }
+        if(object2GotHit() || object3GotHit() || object4GotHit() || question1==1){
+            hand.voice_false.play(1);
+        }
+        if(object2GotHit()){
+            Object2.voice_answer.play(1);
+        }
+        if(object3GotHit()){
+            Object3.voice_answer.play(1);
+        }
+        if(object4GotHit()){
+            Object4.voice_answer.play(1);
+        }
+
+*/
 
     }
 
@@ -139,7 +375,7 @@ public class Screen3 extends Screen{
 
     @Override
     public void dispose() {
-     //   super.dispose();
+        // super.dispose();
         System.gc();
     }
 
@@ -148,22 +384,20 @@ public class Screen3 extends Screen{
         pause();
     }
     boolean object1GotHit(){
-        if(direction_main.contain(myobject31.getX(),myobject31.getY())) return true;
+        if(myobject.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object2GotHit(){
-        if(direction_main.contain(myobject32.getX(),myobject32.getY())) return true;
+        if(myobject12.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object3GotHit(){
-        if(direction_main.contain(myobject33.getX(),myobject33.getY())) return true;
+        if(myobject13.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object4GotHit(){
-        if(direction_main.contain(myobject34.getX(),myobject34.getY())) return true;
+        if(myobject14.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
-
-
 
 }
