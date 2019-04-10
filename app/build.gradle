@@ -26,7 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //E-mobadara-lib
-    implementation 'com.github.e-mobadara:2d-game-lib:v1.2.2'
+    implementation 'com.github.e-mobadara:moblib:v1.2.3'
     //ROOM
     implementation 'android.arch.persistence.room:runtime:1.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
@@ -46,5 +46,14 @@ dependencies {
     implementation 'info.androidhive:fontawesome:0.0.5'
     //compresser image
     implementation 'id.zelory:compressor:2.1.0'
+    //fot gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
+
+
+    //rotation
+    implementation 'com.github.nipun-birla:Swipe3DRotateView:0.0.1'
+    //buttons
+    implementation 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
+
 
 }

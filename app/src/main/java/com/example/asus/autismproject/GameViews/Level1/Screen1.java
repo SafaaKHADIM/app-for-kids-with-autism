@@ -1,31 +1,30 @@
 package com.example.asus.autismproject.GameViews.Level1;
-import android.media.MediaPlayer;
 import android.util.Log;
 
-import com.example.asus.autismproject.R;
-import com.example.asus.autismproject.Sprites.Level1.Myobject11;
-import com.example.asus.autismproject.Sprites.Level1.Myobject12;
-import com.example.asus.autismproject.Sprites.Level1.Myobject13;
-import com.example.asus.autismproject.Sprites.Level1.Myobject14;
+import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
+
 import com.example.asus.autismproject.Sprites.direction;
 import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
 import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
+import com.example.asus.autismproject.assets.background;
+import com.example.asus.autismproject.assets.hamtaro_character_1;
 import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
-import com.example.emobadaragaminglib.Implementation.AndroidGame;
-import com.example.emobadaragaminglib.Implementation.AndroidSound;
 
 public class Screen1 extends Screen  {
     private final String TAG = "Screen1";
-    private Myobject11 myobject11;
-    private Myobject12 myobject12;
-    private Myobject13 myobject13;
-    private Myobject14 myobject14;
+    private Myobject myobject;
+    private Myobject myobject12;
+    private Myobject myobject13;
+    private Myobject myobject14;
+    private Myobject _background;
+    private Myobject maxwell;
     private direction direction_main ;
+
     private int mX ;
     private int mY ;
     private int lecture1=0;
@@ -45,6 +44,9 @@ public class Screen1 extends Screen  {
     private int myHack6=0;
     private int myHack7=0;
     private int myHack8=0;
+ //   private Sprite bac;
+ // private Context context;
+
 
 
     public Screen1(Game game) {
@@ -53,26 +55,33 @@ public class Screen1 extends Screen  {
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject11 = new Myobject11(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject12 = new Myobject12(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject13 = new Myobject13(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject14 =new Myobject14(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject13 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject14 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
         //hand
         direction_main = new direction(hand.avatar,0,0,150,150);
+        _background = new Myobject(background.avatar,0,0,game.getScreenHeight(),game.getScreenWidth());
+        maxwell = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
 
         //Now that everything is good let's add the Sprite to the list that we have.
-        addSprite(myobject11);
+        addSprite(_background);
+        addSprite(maxwell);
+        addSprite(myobject);
         addSprite(myobject12);
         addSprite(myobject13);
         addSprite(myobject14);
         addSprite(direction_main);
+
 
         Log.d(TAG, "Constructor Called");
 
 
 
 
+
     }
+
 
     @Override
     public void render(float deltaTime) {
@@ -80,8 +89,8 @@ public class Screen1 extends Screen  {
         g.drawARGB(255,0,0,0);
         if(myHack==10) {
            if(lecture1==0 ) {
-               mX = myobject11.getX();
-               mY = myobject11.getY();
+               mX = myobject.getX();
+               mY = myobject.getY();
                direction_main.setX(mX);
                direction_main.setY(mY);
                Object1.voice_answer.play(1);
@@ -89,7 +98,7 @@ public class Screen1 extends Screen  {
 
            }
 
-            if(lecture2==0 && myHack2==30) {
+            if(lecture2==0 && myHack2==15) {
                 mX = myobject12.getX();
                 mY = myobject12.getY();
                 direction_main.setX(mX);
@@ -100,7 +109,7 @@ public class Screen1 extends Screen  {
             }
             myHack2++;
 
-        if(lecture3==0 && myHack3==60) {
+        if(lecture3==0 && myHack3==30) {
             mX = myobject13.getX();
             mY = myobject13.getY();
             direction_main.setX(mX);
@@ -110,7 +119,7 @@ public class Screen1 extends Screen  {
             myHack3=0;
         }
         myHack3++;
-        if(lecture4==0 && myHack4==90) {
+        if(lecture4==0 && myHack4==45) {
             mX = myobject14.getX();
             mY = myobject14.getY();
             direction_main.setX(mX);
@@ -120,7 +129,9 @@ public class Screen1 extends Screen  {
             myHack4=0;
         }
         myHack4++;
-            /*if(lecture5==0 && myHack5==120) {
+
+        //-------------------------------------------------------------------
+            if(lecture5==0 && myHack5==120) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
@@ -173,7 +184,8 @@ public class Screen1 extends Screen  {
                 myHack8=0;
             }
             myHack8++;
-*/
+        //--------------------------------------------------------------------------------------------------
+
 
 
 
@@ -195,7 +207,7 @@ public class Screen1 extends Screen  {
         super.handleDragging(x, y, pointer);
         if(object1GotHit()){
             Object1.voice_answer.play(1);
-            hand.voice_right.play(1);
+           // hand.voice_right.play(1);
         }
         if(object2GotHit()){
             Object2.voice_answer.play(1);
@@ -230,7 +242,7 @@ public class Screen1 extends Screen  {
 
     @Override
     public void dispose() {
-        super.dispose();
+       // super.dispose();
         System.gc();
     }
 
@@ -239,21 +251,20 @@ public class Screen1 extends Screen  {
         pause();
     }
     boolean object1GotHit(){
-        if(direction_main.contain(myobject11.getX(),myobject11.getY())) return true;
+        if(myobject.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object2GotHit(){
-        if(direction_main.contain(myobject12.getX(),myobject12.getY())) return true;
+        if(myobject12.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object3GotHit(){
-        if(direction_main.contain(myobject13.getX(),myobject13.getY())) return true;
+        if(myobject13.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
     boolean object4GotHit(){
-        if(direction_main.contain(myobject14.getX(),myobject14.getY())) return true;
+        if(myobject14.contain(direction_main.getX(),direction_main.getY())) return true;
         return false;
     }
-
 
 }

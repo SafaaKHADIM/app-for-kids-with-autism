@@ -1,10 +1,8 @@
 package com.example.asus.autismproject.GameViews.Level2;
 import android.util.Log;
 
-import com.example.asus.autismproject.Sprites.Level2.Myobject21;
-import com.example.asus.autismproject.Sprites.Level2.Myobject22;
-import com.example.asus.autismproject.Sprites.Level2.Myobject23;
-import com.example.asus.autismproject.Sprites.Level2.Myobject24;
+import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
+
 import com.example.asus.autismproject.Sprites.direction;
 import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
@@ -17,10 +15,10 @@ import com.example.emobadaragaminglib.Base.Screen;
 
 public class Screen2 extends Screen{
     private final String TAG = "Screen2";
-    private Myobject21 myobject21;
-    private Myobject22 myobject22;
-    private Myobject23 myobject23;
-    private Myobject24 myobject24;
+    private Myobject myobject21;
+    private Myobject myobject22;
+    private Myobject myobject23;
+    private Myobject myobject24;
     private direction direction_main ;
     private int mX ;
     private int mY ;
@@ -51,14 +49,14 @@ public class Screen2 extends Screen{
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
         //hand
-        direction_main = new direction(Object1.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,300,300);
+        direction_main = new direction(hand.avatar,0,0,150,150);
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject21 = new Myobject21(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject22 = new Myobject22(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject23 = new Myobject23(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject24 =new Myobject24(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject21 = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject22 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject23 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject24 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(myobject21);
         addSprite(myobject22);
@@ -128,7 +126,7 @@ public class Screen2 extends Screen{
                 Object1.voice_question.play(1);
 
 
-                if(myHack1==10){
+                if(myHack1>10){
                     if(object1GotHit() ){
                         hand.voice_right.play(1);
                         lecture5=1;
@@ -200,18 +198,7 @@ public class Screen2 extends Screen{
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
-        if(object1GotHit()){
-            Object1.voice_answer.play(1);
-        }
-        if(object2GotHit()){
-            Object2.voice_answer.play(1);
-        }
-        if(object3GotHit()){
-            Object3.voice_answer.play(1);
-        }
-        if(object4GotHit()){
-            Object4.voice_answer.play(1);
-        }
+
     }
 
     @Override
@@ -233,7 +220,7 @@ public class Screen2 extends Screen{
 
     @Override
     public void dispose() {
-        super.dispose();
+       // super.dispose();
         System.gc();
     }
 

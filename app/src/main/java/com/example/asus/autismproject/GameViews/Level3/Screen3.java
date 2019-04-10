@@ -1,10 +1,8 @@
 package com.example.asus.autismproject.GameViews.Level3;
 import android.util.Log;
 
-import com.example.asus.autismproject.Sprites.Level3.Myobject31;
-import com.example.asus.autismproject.Sprites.Level3.Myobject32;
-import com.example.asus.autismproject.Sprites.Level3.Myobject33;
-import com.example.asus.autismproject.Sprites.Level3.Myobject34;
+import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
+
 import com.example.asus.autismproject.Sprites.direction;
 import com.example.asus.autismproject.assets.Object1;
 import com.example.asus.autismproject.assets.Object2;
@@ -16,10 +14,10 @@ import com.example.emobadaragaminglib.Base.Screen;
 
 public class Screen3 extends Screen{
     private final String TAG = "Screen3";
-    private Myobject31 myobject31;
-    private Myobject32 myobject32;
-    private Myobject33 myobject33;
-    private Myobject34 myobject34;
+    private Myobject myobject31;
+    private Myobject myobject32;
+    private Myobject myobject33;
+    private Myobject myobject34;
     private direction direction_main ;
     private int mX ;
     private int mY ;
@@ -43,10 +41,10 @@ public class Screen3 extends Screen{
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject31 = new Myobject31(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject32 = new Myobject32(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject33 = new Myobject33(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject34 =new Myobject34(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject31 = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject32 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject33 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject34 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(myobject31);
         addSprite(myobject32);
@@ -141,7 +139,7 @@ public class Screen3 extends Screen{
 
     @Override
     public void dispose() {
-        super.dispose();
+     //   super.dispose();
         System.gc();
     }
 

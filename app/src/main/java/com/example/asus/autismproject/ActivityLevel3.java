@@ -51,7 +51,7 @@ public class ActivityLevel3 extends AndroidGame {
 
 
 
-        List<Object> objcts = AddObject.database._Dao()._getObject();
+        List<Object> objcts = ActivityLevel3.database._Dao()._getObject();
 
         int i= objcts.size();
         //generer des nombres aleatoires

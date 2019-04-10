@@ -46,7 +46,9 @@
         <activity android:name=".ActivitySettings" />
         <activity android:name=".Levels" />
         <activity android:name=".ActivityLanguage" />
-        <activity android:name=".ActivityCategory"></activity>
+        <activity android:name=".ActivityCategory" />
+        <activity android:name=".AboutTheGame" />
+        <activity android:name=".play"></activity>
     </application>
 
 </manifest>

@@ -51,7 +51,7 @@ public class ActivityLevel2 extends AndroidGame {
 
         hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
 
-        List<Object> objcts = AddObject.database._Dao()._getObject();
+        List<Object> objcts = ActivityLevel2.database._Dao()._getObject();
 
         int i= objcts.size();
         //generer des nombres aleatoires
@@ -92,11 +92,11 @@ public class ActivityLevel2 extends AndroidGame {
 
             Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
             Object1.avatar =(Image) new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
-            Bitmap bitmap2 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Bitmap bitmap2 = new Compressor(this).compressToBitmap(new File(Myobject2.getImage()));
             Object2.avatar =(Image) new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
-            Bitmap bitmap3 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Bitmap bitmap3 = new Compressor(this).compressToBitmap(new File(Myobject3.getImage()));
             Object3.avatar =(Image) new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
-            Bitmap bitmap4 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
+            Bitmap bitmap4 = new Compressor(this).compressToBitmap(new File(Myobject4.getImage()));
             Object4.avatar =(Image) new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
         } catch (IOException e) {
             e.printStackTrace();
