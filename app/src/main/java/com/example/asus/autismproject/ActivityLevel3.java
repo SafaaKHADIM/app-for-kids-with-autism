@@ -47,7 +47,7 @@ public class ActivityLevel3 extends AndroidGame {
     public Screen getInitScreen() {
 
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
-        List<Object> objcts = ActivityLevel1.database._Dao()._getObject();
+        List<Object> objcts = ActivityLevel3.database._Dao()._getObject();
         int i= objcts.size();
         //generer des nombres aleatoires
         Random rand = new Random();

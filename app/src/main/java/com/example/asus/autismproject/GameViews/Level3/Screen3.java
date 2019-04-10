@@ -46,18 +46,22 @@ public class Screen3 extends Screen  {
     private int myHack2=0;
     private int myHack3=0;
     private int myHack4=0;
-    private int myHack5=0;
-    private int myHack6=0;
-    private int myHack7=0;
-    private int myHack8=0;
-    private int myHack9=0;
-    private int myHack10=0;
-    private int myHack11=0;
-    private int myHack12=0;
+    private int myHack5=59;
+    private int myHack6=60;
+    private int myHack7=60;
+    private int myHack8=60;
+    private int myHack9=60;
+    private int myHack10=60;
+    private int myHack11=60;
+    private int myHack12=60;
     private int question1=0;
     private int question2=0;
     private int question3=0;
     private int question4=0;
+    private int changeposition=0;
+    int i=4;
+    Random rand = new Random();
+    int number1 = rand.nextInt(i);
     //   private Sprite bac;
     // private Context context;
 
@@ -101,56 +105,69 @@ public class Screen3 extends Screen  {
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
-       int i=4;
-        Random rand = new Random();
-        int number1 = rand.nextInt(i);
-        if(number1==0){
-            myobject.setX(myobject12.getX());
-            myobject.setY(myobject12.getY());
-            myobject12.setX(myobject13.getX());
-            myobject12.setY(myobject13.getY());
-            myobject13.setX(myobject14.getX());
-            myobject13.setY(myobject14.getY());
-            myobject14.setX(myobject.getX());
-            myobject14.setY(myobject.getY());
+        int x1 =myobject.getX();
+        int y1=myobject.getY();
+        int x2 =myobject12.getX();
+        int y2=myobject12.getY();
+        int x3 =myobject13.getX();
+        int y3=myobject13.getY();
+        int x4 =myobject14.getX();
+        int y4=myobject14.getY();
 
-        }
-        if(number1==1){
-            myobject.setX(myobject13.getX());
-            myobject.setY(myobject13.getY());
-            myobject12.setX(myobject14.getX());
-            myobject12.setY(myobject14.getY());
-            myobject13.setX(myobject.getX());
-            myobject13.setY(myobject.getY());
-            myobject14.setX(myobject12.getX());
-            myobject14.setY(myobject12.getY());
-
-        }
-        if(number1==2){
-            myobject.setX(myobject14.getX());
-            myobject.setY(myobject14.getY());
-            myobject12.setX(myobject13.getX());
-            myobject12.setY(myobject13.getY());
-            myobject13.setX(myobject12.getX());
-            myobject13.setY(myobject12.getY());
-            myobject14.setX(myobject.getX());
-            myobject14.setY(myobject.getY());
-
-        }
-        if(number1==3){
-            myobject.setX(myobject12.getX());
-            myobject.setY(myobject12.getY());
-            myobject12.setX(myobject.getX());
-            myobject12.setY(myobject.getY());
-            myobject13.setX(myobject14.getX());
-            myobject13.setY(myobject14.getY());
-            myobject14.setX(myobject.getX());
-            myobject14.setY(myobject.getY());
-
-        }
 
         if(myHack==10) {
+            if(number1==0 && changeposition==0){
+                Log.d("safaa", "number1=0");
+                changeposition=1;
+                myobject.setX(x2);
+                myobject.setY(y2);
+                myobject12.setX(x3);
+                myobject12.setY(y3);
+                myobject13.setX(x4);
+                myobject13.setY(y4);
+                myobject14.setX(x1);
+                myobject14.setY(y1);
 
+            }
+            if(number1==1 && changeposition==0){
+                Log.d("safaa", "number1=1");
+                changeposition=1;
+                myobject.setX(x3);
+                myobject.setY(y3);
+                myobject12.setX(x4);
+                myobject12.setY(y4);
+                myobject13.setX(x2);
+                myobject13.setY(y2);
+                myobject14.setX(x1);
+                myobject14.setY(y1);
+
+            }
+            if(number1==2 && changeposition==0){
+                Log.d("safaa", "number1=2");
+                changeposition=1;
+                myobject.setX(x4);
+                myobject.setY(y4);
+                myobject12.setX(x3);
+                myobject12.setY(y3);
+                myobject13.setX(x2);
+                myobject13.setY(y2);
+                myobject14.setX(x1);
+                myobject14.setY(y1);
+
+            }
+            if(number1==3 && changeposition==0){
+                Log.d("safaa", "number1=3");
+                changeposition=1;
+                myobject.setX(x3);
+                myobject.setY(y3);
+                myobject12.setX(x1);
+                myobject12.setY(y1);
+                myobject13.setX(x4);
+                myobject13.setY(y4);
+                myobject14.setX(x2);
+                myobject14.setY(y2);
+
+            }
 
             //____________________________________________________________________________1rst question_________________________________________
             if(lecture5==0 && myHack5==60) {
