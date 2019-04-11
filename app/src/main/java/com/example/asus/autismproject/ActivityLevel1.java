@@ -110,8 +110,8 @@ public class ActivityLevel1 extends AndroidGame {
        // GifImageView iv = new GifImageView(this); //dynamically created imageview
 
         //iv.setImageResource(R.drawable.maxwell);
-        hamtaro_character_1.avatar=getGraphics().newImage(R.drawable.maxwell,Graphics.ImageFormat.ARGB8888,getResources());
-        hamtaro_character_2.avatar=getGraphics().newImage(R.drawable.bijou1,Graphics.ImageFormat.ARGB8888,getResources());
+        hamtaro_character_1.avatar=getGraphics().newImage(R.drawable.maxwellframe1,Graphics.ImageFormat.ARGB8888,getResources());
+        hamtaro_character_2.avatar=getGraphics().newImage(R.drawable.maxwellframe2,Graphics.ImageFormat.ARGB8888,getResources());
 
         //The method is going to
         return new Screen1(this);

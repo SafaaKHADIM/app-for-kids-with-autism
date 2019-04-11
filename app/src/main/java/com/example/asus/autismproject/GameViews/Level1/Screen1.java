@@ -15,6 +15,9 @@ import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
+import com.example.emobadaragaminglib.Components.Sprite;
+
+import java.util.ArrayList;
 
 public class Screen1 extends Screen  {
     private final String TAG = "Screen1";
@@ -23,10 +26,11 @@ public class Screen1 extends Screen  {
     private Myobject myobject13;
     private Myobject myobject14;
     private Myobject _background;
-    private Myobject maxwell;
+    private direction maxwell1;
+    private direction maxwell2;
     private Myobject bijou;
     private direction direction_main ;
-
+    int a=0;
     private int hamtaro=0;
     private int showinghamtaro=0;
     private int mX ;
@@ -61,6 +65,8 @@ public class Screen1 extends Screen  {
     private int question2=0;
     private int question3=0;
     private int question4=0;
+
+    private ArrayList<Sprite> sprites;
  //   private Sprite bac;
  // private Context context;
 
@@ -79,9 +85,14 @@ public class Screen1 extends Screen  {
         //hand
         direction_main = new direction(hand.avatar,0,0,150,150);
         _background = new Myobject(background.avatar,0,0,game.getScreenHeight(),game.getScreenWidth());
-        maxwell = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        bijou = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
+       // maxwell = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        //bijou = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
         //Now that everything is good let's add the Sprite to the list that we have.
+
+
+        maxwell1 = new direction(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        maxwell2 = new direction(hamtaro_character_2.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
+
         addSprite(_background);
        // addSprite(maxwell);
         addSprite(myobject);
@@ -104,44 +115,37 @@ public class Screen1 extends Screen  {
     public void render(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
-        maxwell = new Myobject(hamtaro_character_1.avatar,0,0,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        bijou = new Myobject(hamtaro_character_2.avatar,100,100,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        if(showinghamtaro>=0 && showinghamtaro<=10) {
+            Log.d("safaa", "waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3");
+            addSprite(maxwell1);
+            maxwell1.setX(0);
+            maxwell1.setY(0);
 
-        if(showinghamtaro>=3){
-            Log.d("safaa", "hamtaro1");
-            addSprite(maxwell);
-            if(showinghamtaro==5){
-               // removeSprite(maxwell);
-                addSprite(bijou);
-                showinghamtaro=3;
-            }
-           
         }
+
+if(showinghamtaro==11){
+    Log.d("safaa", "wa ta tbdel a zbaaaaaaaaaaaaaaaaaaaal");
+            int mx=game.getScreenHeight();
+            int my=game.getScreenWidth();
+            maxwell1.setX(mx);
+            maxwell1.setY(my);
+}
+if(showinghamtaro>=12 && showinghamtaro <=22){
+            addSprite(maxwell2);
+            maxwell2.setX(0);
+            maxwell2.setY(0);
+}
+if(showinghamtaro==23){
+    int mx=game.getScreenHeight();
+    int my=game.getScreenWidth();
+    maxwell2.setX(mx);
+    maxwell2.setY(my);
+    showinghamtaro=0;
+}
+
         showinghamtaro++;
 
-        /*  if(showinghamtaro==5){
-            showinghamtaro=0;
-        if(hamtaro==0) {
-            Log.d("safaa", "hamtaro1");
-            addSprite(maxwell);
-            //removeSprite(bijou);
-            hamtaro=1;
-        }
-        else if(hamtaro==1){
-            Log.d("safaa", "hamtaro2");
-            removeSprite(maxwell);
-            addSprite(bijou);
 
-            hamtaro=2;
-        }
-        else if(hamtaro==2) {
-            Log.d("safaa", "hamtaro3");
-            removeSprite(bijou);
-            // addSprite(maxwell);
-
-            hamtaro=0;
-        }}
-        showinghamtaro++;*/
         if(myHack==10) {
 
 
