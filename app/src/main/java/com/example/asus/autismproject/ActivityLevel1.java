@@ -21,6 +21,7 @@ import com.example.asus.autismproject.assets.Object3;
 import com.example.asus.autismproject.assets.Object4;
 import com.example.asus.autismproject.assets.background;
 import com.example.asus.autismproject.assets.hamtaro_character_1;
+import com.example.asus.autismproject.assets.hamtaro_character_2;
 import com.example.asus.autismproject.assets.hand;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Image;
@@ -110,6 +111,7 @@ public class ActivityLevel1 extends AndroidGame {
 
         //iv.setImageResource(R.drawable.maxwell);
         hamtaro_character_1.avatar=getGraphics().newImage(R.drawable.maxwell,Graphics.ImageFormat.ARGB8888,getResources());
+        hamtaro_character_2.avatar=getGraphics().newImage(R.drawable.bijou1,Graphics.ImageFormat.ARGB8888,getResources());
 
         //The method is going to
         return new Screen1(this);

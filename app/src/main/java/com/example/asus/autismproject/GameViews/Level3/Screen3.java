@@ -73,10 +73,10 @@ public class Screen3 extends Screen  {
 
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),game.getScreenHeight()/4,game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject13 = new Myobject(Object3.avatar,game.getScreenWidth()/7,2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
-        myobject14 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),2*(game.getScreenHeight()/3),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,3*(game.getScreenHeight())/8,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),3*(game.getScreenHeight())/8,game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject13 = new Myobject(Object3.avatar,game.getScreenWidth()/7,6*(game.getScreenHeight()/8),game.getScreenHeight()/8,game.getScreenWidth()/4);
+        myobject14 =new Myobject(Object4.avatar,5*(game.getScreenWidth()/8),6*(game.getScreenHeight()/8),game.getScreenHeight()/8,game.getScreenWidth()/4);
         //hand
         direction_main = new direction(hand.avatar,0,0,150,150);
         _background = new Myobject(background.avatar,0,0,game.getScreenHeight(),game.getScreenWidth());

@@ -104,7 +104,7 @@ public class ActivityLevel3 extends AndroidGame {
         hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
         hand.voice_false =  (AndroidSound) getAudio().createSound(R.raw.create);
         //background
-        background.avatar= getGraphics().newImage(R.drawable.board1,Graphics.ImageFormat.ARGB8888,getResources());
+        background.avatar= getGraphics().newImage(R.drawable.board2,Graphics.ImageFormat.ARGB8888,getResources());
         //hamtaro characters
 
         // GifImageView iv = new GifImageView(this); //dynamically created imageview
