@@ -2,6 +2,7 @@ package com.example.asus.autismproject;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
@@ -42,6 +43,8 @@ import id.zelory.compressor.Compressor;
 
 public class ActivityLevel1 extends AndroidGame {
     public static Database database;
+    private Context context;
+
 
     @Override
     public Screen getInitScreen() {
@@ -56,6 +59,14 @@ public class ActivityLevel1 extends AndroidGame {
         int number2 = rand.nextInt(i);
         int number3 = rand.nextInt(i);
         int number4 = rand.nextInt(i);
+        context = (Context) this;
+       /* Intent _my_intent = new Intent(context,ActivityLevel3.class);
+        _my_intent.putExtra("num1",number1);
+        _my_intent.putExtra("num2",number2);
+        _my_intent.putExtra("num3",number3);
+        _my_intent.putExtra("num4",number4);
+        startActivity(_my_intent);
+*/
         //get the objects
         Object Myobject1 = objcts.get(number1);
         Object Myobject2 = objcts.get(number2);
@@ -115,6 +126,7 @@ public class ActivityLevel1 extends AndroidGame {
 
         //The method is going to
         return new Screen1(this);
+
     }
 
     @Override

@@ -42,6 +42,9 @@ import id.zelory.compressor.Compressor;
 
 public class ActivityLevel2 extends AndroidGame {
     public static Database database;
+    private Context context;
+
+
 
     @Override
     public Screen getInitScreen() {

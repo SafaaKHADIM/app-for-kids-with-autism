@@ -48,7 +48,8 @@
         <activity android:name=".ActivityLanguage" />
         <activity android:name=".ActivityCategory" />
         <activity android:name=".AboutTheGame" />
-        <activity android:name=".play"></activity>
+        <activity android:name=".play" />
+        <activity android:name=".From1to2"></activity>
     </application>
 
 </manifest>

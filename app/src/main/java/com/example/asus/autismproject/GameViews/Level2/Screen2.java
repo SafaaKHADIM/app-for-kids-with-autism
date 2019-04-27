@@ -1,6 +1,9 @@
 package com.example.asus.autismproject.GameViews.Level2;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
+import com.example.asus.autismproject.AboutTheGame;
 import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
 
 import com.example.asus.autismproject.Sprites.direction;
@@ -57,6 +60,7 @@ public class Screen2 extends Screen  {
     private int question2=0;
     private int question3=0;
     private int question4=0;
+    private Context context;
     //   private Sprite bac;
     // private Context context;
 
@@ -65,7 +69,7 @@ public class Screen2 extends Screen  {
     public Screen2(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
-
+        context = (Context) game;
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
         myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,3*(game.getScreenHeight())/7,game.getScreenHeight()/8,game.getScreenWidth()/4);
@@ -101,7 +105,6 @@ public class Screen2 extends Screen  {
         Graphics g = game.getGraphics();
         g.drawARGB(255,0,0,0);
         if(myHack==10) {
-
 
             //____________________________________________________________________________1rst question_________________________________________
             if(lecture5==0 && myHack5==60) {

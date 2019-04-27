@@ -26,7 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //E-mobadara-lib
-    implementation 'com.github.e-mobadara:moblib:v1.2.3'
+    implementation 'com.github.e-mobadara:moblib:v1.2.4'
     //ROOM
     implementation 'android.arch.persistence.room:runtime:1.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
@@ -48,7 +48,6 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
     //fot gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
-
 
     //rotation
     implementation 'com.github.nipun-birla:Swipe3DRotateView:0.0.1'

@@ -32,15 +32,15 @@ public class Screen3 extends Screen  {
     private int lecture2=0;
     private int lecture3=0;
     private int lecture4=0;
-    private int lecture5=0;
-    private int lecture6=0;
-    private int lecture7=0;
-    private int lecture8=0;
-    private int lecture9=0;
-    private int lecture10=0;
-    private int lecture11=0;
-    private int lecture12=0;
-
+    private int lecture15=0;
+    private int lecture16=0;
+    private int lecture17=0;
+    private int lecture18=0;
+    private int lecture19=0;
+    private int lecture20=0;
+    private int lecture21=0;
+    private int lecture22=0;
+ 
     private int myHack=0; //used to get some time before re-rendering
     private int myHack1=0;
     private int myHack2=0;
@@ -54,9 +54,9 @@ public class Screen3 extends Screen  {
     private int myHack10=60;
     private int myHack11=60;
     private int myHack12=60;
-    private int question1=0;
-    private int question2=0;
-    private int question3=0;
+    private int question5=0; 
+    private int question6=0; 
+    private int question7=0; 
     private int question4=0;
     private int changeposition=0;
     int i=4;
@@ -116,7 +116,16 @@ public class Screen3 extends Screen  {
 
 
         if(myHack==10) {
-            if(number1==0 && changeposition==0){
+            myobject.setX(500);
+            myobject.setY(500);
+            myobject12.setX(500);
+            myobject12.setY(500);
+            myobject13.setX(500);
+            myobject13.setY(500);
+            myobject14.setX(500);
+            myobject14.setY(500);
+
+            if(number1==0 && changeposition==0 && myHack1==5){
                 Log.d("safaa", "number1=0");
                 changeposition=1;
                 myobject.setX(x2);
@@ -129,7 +138,7 @@ public class Screen3 extends Screen  {
                 myobject14.setY(y1);
 
             }
-            if(number1==1 && changeposition==0){
+            if(number1==1 && changeposition==0 && myHack1==5){
                 Log.d("safaa", "number1=1");
                 changeposition=1;
                 myobject.setX(x3);
@@ -142,7 +151,7 @@ public class Screen3 extends Screen  {
                 myobject14.setY(y1);
 
             }
-            if(number1==2 && changeposition==0){
+            if(number1==2 && changeposition==0 && myHack1==5){
                 Log.d("safaa", "number1=2");
                 changeposition=1;
                 myobject.setX(x4);
@@ -155,7 +164,7 @@ public class Screen3 extends Screen  {
                 myobject14.setY(y1);
 
             }
-            if(number1==3 && changeposition==0){
+            if(number1==3 && changeposition==0 && myHack1==5){
                 Log.d("safaa", "number1=3");
                 changeposition=1;
                 myobject.setX(x3);
@@ -168,24 +177,24 @@ public class Screen3 extends Screen  {
                 myobject14.setY(y2);
 
             }
-
+            myHack1++;
             //____________________________________________________________________________1rst question_________________________________________
-            if(lecture5==0 && myHack5==60) {
+            if(lecture15==0 && myHack5==60) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
                 Object1.voice_question.play(1);
-                question1=1;
+                question5=1;
             }
             myHack5++;
-            if(lecture6==0 && myHack6>=65 && question1==1) {
+            if(lecture16==0 && myHack6>=65 && question5==1) {
                 myHack7=60; myHack9=60; myHack11=60;
-                if(object1GotHit() && question1==1){
+                if(object1GotHit() && question5==1){
                     hand.voice_right.play(1);
-                    question1=0;
+                    question5=0;
                 }
-                if((object2GotHit() || object3GotHit() || object4GotHit()) && question1==1){
+                if((object2GotHit() || object3GotHit() || object4GotHit()) && question5==1){
                     hand.voice_false.play(1);
                     mX = 0;
                     mY = 0;
@@ -198,22 +207,22 @@ public class Screen3 extends Screen  {
             myHack6++;
             //_______________________________________________________________________________________________________________ 2nd question______________________________________________
 
-            if(lecture7==0 && myHack7==65) {
+            if(lecture17==0 && myHack7==65) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
                 Object2.voice_question.play(1);
-                question2=1;
+                question6=1;
             }
             myHack7++;
-            if(lecture8==0 && myHack8>=65 && question2==1) {
+            if(lecture18==0 && myHack8>=65 && question6==1) {
                 myHack9=60; myHack11=60;
-                if(object2GotHit() && question2==1){
+                if(object2GotHit() && question6==1){
                     hand.voice_right.play(1);
-                    question2=0;
+                    question6=0;
                 }
-                if((object1GotHit() || object3GotHit() || object4GotHit()) && question2==1){
+                if((object1GotHit() || object3GotHit() || object4GotHit()) && question6==1){
                     hand.voice_false.play(1);
                     mX = 0;
                     mY = 0;
@@ -230,22 +239,22 @@ public class Screen3 extends Screen  {
 
             //_________________________________________________________________3rd question_____________________________________________________________
 
-            if(lecture9==0 && myHack9==70) {
+            if(lecture19==0 && myHack9==70) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
                 direction_main.setY(mY);
                 Object3.voice_question.play(1);
-                question3=1;
+                question7=1;
             }
             myHack9++;
-            if(lecture10==0 && myHack10>=65 && question3==1) {
+            if(lecture20==0 && myHack10>=65 && question7==1) {
                 myHack11=60;
-                if(object3GotHit() && question3==1){
+                if(object3GotHit() && question7==1){
                     hand.voice_right.play(1);
-                    question3=0;
+                    question7=0;
                 }
-                if((object2GotHit() || object1GotHit() || object4GotHit()) && question3==1){
+                if((object2GotHit() || object1GotHit() || object4GotHit()) && question7==1){
                     hand.voice_false.play(1);
                     mX = 0;
                     mY = 0;
@@ -259,7 +268,7 @@ public class Screen3 extends Screen  {
             //_________________________________________________________________________________4th question__________________________________________________
 
 
-            if(lecture11==0 && myHack11==75) {
+            if(lecture21==0 && myHack11==75) {
                 mX = 0;
                 mY = 0;
                 direction_main.setX(mX);
@@ -268,7 +277,7 @@ public class Screen3 extends Screen  {
                 question4=1;
             }
             myHack11++;
-            if(lecture12==0 && myHack12>=65 && question4==1) {
+            if(lecture22==0 && myHack12>=65 && question4==1) {
                 if(object4GotHit() && question4==1){
                     hand.voice_right.play(1);
                     question4=0;

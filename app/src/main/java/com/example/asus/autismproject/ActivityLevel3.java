@@ -48,14 +48,21 @@ public class ActivityLevel3 extends AndroidGame {
 
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
         List<Object> objcts = ActivityLevel3.database._Dao()._getObject();
-        int i= objcts.size();
+        //int i= objcts.size();
+        Bundle b = getIntent().getExtras();
+        int number1=b.getInt("num1");
+        int number2=b.getInt("num2");
+        int number3=b.getInt("num3");
+        int number4=b.getInt("num4");
+
         //generer des nombres aleatoires
-        Random rand = new Random();
+       /* Random rand = new Random();
         int number1 = rand.nextInt(i);
         /// il faut ajouter la condition pour qu il ne choisit pas le même objet c a d il faut que number1 soit diff de number2.....
         int number2 = rand.nextInt(i);
         int number3 = rand.nextInt(i);
         int number4 = rand.nextInt(i);
+        */
         //get the objects
         Object Myobject1 = objcts.get(number1);
         Object Myobject2 = objcts.get(number2);
