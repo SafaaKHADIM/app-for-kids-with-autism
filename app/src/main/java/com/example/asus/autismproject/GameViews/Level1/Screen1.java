@@ -1,4 +1,5 @@
 package com.example.asus.autismproject.GameViews.Level1;
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -6,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.asus.autismproject.AboutTheGame;
 import com.example.asus.autismproject.ActivityLevel1;
+import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.From1to2;
 import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
 
@@ -28,6 +30,10 @@ import java.util.Random;
 
 public class Screen1 extends Screen  {
     private final String TAG = "Screen1";
+    public static Database database;
+    private int score=0 ;
+    private int rightanswers=0;
+    private int falseanswers=0;
     private Myobject myobject;
     private Myobject myobject12;
     private Myobject myobject13;
@@ -113,7 +119,7 @@ public class Screen1 extends Screen  {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
         context = (Context) game;
-
+        database = Room.databaseBuilder(context.getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
         myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,3*(game.getScreenHeight())/7,game.getScreenHeight()/8,game.getScreenWidth()/4);
         myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),3*(game.getScreenHeight())/7,game.getScreenHeight()/8,game.getScreenWidth()/4);
@@ -257,10 +263,14 @@ public class Screen1 extends Screen  {
                 myHack7=24; myHack9=24; myHack11=24; myHack15=24; myHack17=24; myHack19=24;myHack21=24;
                 if(object1GotHit() && question1==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question1=0;
                 }
                 if((object2GotHit() || object3GotHit() || object4GotHit()) && question1==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -286,10 +296,14 @@ public class Screen1 extends Screen  {
                 myHack9=20; myHack11=20; myHack15=20; myHack17=20; myHack19=20;myHack21=20;
                 if(object2GotHit() && question2==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question2=0;
                 }
                 if((object1GotHit() || object3GotHit() || object4GotHit()) && question2==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -318,10 +332,14 @@ public class Screen1 extends Screen  {
                 myHack11=20; myHack15=20; myHack17=20; myHack19=20;myHack21=20;
                 if(object3GotHit() && question3==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question3=0;
                 }
                 if((object2GotHit() || object1GotHit() || object4GotHit()) && question3==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -349,6 +367,8 @@ public class Screen1 extends Screen  {
                 if(object4GotHit() && question4==1){
                     hand.voice_right.play(1);
                     question4=0;
+                    score=score+30;
+                    rightanswers++;
                     //go to another activity hit safi sala level1 dialou
                     level2=1;
                     Intent intent1=new Intent(context, From1to2.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -358,6 +378,8 @@ public class Screen1 extends Screen  {
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question4==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -468,10 +490,14 @@ public class Screen1 extends Screen  {
                 myHack17=60; myHack19=60;myHack21=60;
                 if(object1GotHit() && question5==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question5=0;
                 }
                 if((object2GotHit() || object3GotHit() || object4GotHit()) && question5==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -496,10 +522,14 @@ public class Screen1 extends Screen  {
                 myHack19=60; myHack21=60;
                 if(object2GotHit() && question6==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question6=0;
                 }
                 if((object1GotHit() || object3GotHit() || object4GotHit()) && question6==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -528,10 +558,14 @@ public class Screen1 extends Screen  {
                 myHack21=60;
                 if(object3GotHit() && question7==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question7=0;
                 }
                 if((object2GotHit() || object1GotHit() || object4GotHit()) && question7==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);
@@ -556,10 +590,14 @@ public class Screen1 extends Screen  {
             if(lecture22==0 && myHack22>=65 && question8==1) {
                 if(object4GotHit() && question8==1){
                     hand.voice_right.play(1);
+                    score=score+30;
+                    rightanswers++;
                     question8=0;
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question8==1){
                     hand.voice_false.play(1);
+                    score=score-10;
+                    falseanswers++;
                     mX = 0;
                     mY = 0;
                     direction_main.setX(mX);

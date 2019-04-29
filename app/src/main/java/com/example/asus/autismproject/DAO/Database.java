@@ -3,7 +3,7 @@ package com.example.asus.autismproject.DAO;
 import android.arch.persistence.room.RoomDatabase;
 
 
-@android.arch.persistence.room.Database(entities = {Object.class } , version=1)
+@android.arch.persistence.room.Database(entities = {Object.class, Score.class } , version=1)
 public abstract class Database extends RoomDatabase{
 
 
