@@ -6,11 +6,12 @@ import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class Levels extends AppCompatActivity {
-
+    public String category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +21,14 @@ public class Levels extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();*/
+        Bundle b = getIntent().getExtras();
+        category=b.getString("category");
        showButtons();
     }
     public void level1(View view) {
         Intent intent1=new Intent(this, ActivityLevel1.class);
+        intent1.putExtra("category",category);
+        Log.e("safaa hhhhhh", "category: "+category);
         this.startActivity(intent1);
 
     }
@@ -49,7 +54,7 @@ public class Levels extends AppCompatActivity {
             }
         }, 1200);
 
-        handler.postDelayed(new Runnable(){
+       /* handler.postDelayed(new Runnable(){
             @Override
             public void run(){
                 ((Button) findViewById(R.id.btnlevel2)).setVisibility(View.VISIBLE);
@@ -60,7 +65,7 @@ public class Levels extends AppCompatActivity {
             public void run(){
                 ((Button) findViewById(R.id.btnlevel3)).setVisibility(View.VISIBLE);
             }
-        }, 3600);
+        }, 3600);*/
 
 
     }

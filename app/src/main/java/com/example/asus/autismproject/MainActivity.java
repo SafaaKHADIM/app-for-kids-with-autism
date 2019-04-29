@@ -3,6 +3,7 @@ package com.example.asus.autismproject;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();*/
+        final MediaPlayer mp1 = MediaPlayer.create(this,R.raw.hamtarosong);
+        mp1.start();
+       /* Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                mp1.start();
+            }
+        }, 5000); */  //5 seconds
         showButtons();
     }
 

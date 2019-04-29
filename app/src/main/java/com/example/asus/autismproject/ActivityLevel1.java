@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
@@ -34,6 +35,7 @@ import com.example.emobadaragaminglib.Implementation.AndroidSound;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -44,13 +46,30 @@ import id.zelory.compressor.Compressor;
 public class ActivityLevel1 extends AndroidGame {
     public static Database database;
     private Context context;
+    public String category;
 
 
     @Override
     public Screen getInitScreen() {
 
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
-        List<Object> objcts = ActivityLevel1.database._Dao()._getObject();
+        Bundle b = getIntent().getExtras();
+        category=b.getString("category");
+        List<Object> objects1 = ActivityLevel1.database._Dao()._getObject();
+        ArrayList<Object> objcts= new ArrayList<Object>();
+        for(Object obj: objects1){
+
+            String cat =obj.getCategorie() ;
+            if(cat.equals(category) ){
+                objcts.add(obj);
+
+            }
+
+
+
+        }
+
+
         int i= objcts.size();
         //generer des nombres aleatoires
         Random rand = new Random();
@@ -60,6 +79,7 @@ public class ActivityLevel1 extends AndroidGame {
         int number3 = rand.nextInt(i);
         int number4 = rand.nextInt(i);
         context = (Context) this;
+
        /* Intent _my_intent = new Intent(context,ActivityLevel3.class);
         _my_intent.putExtra("num1",number1);
         _my_intent.putExtra("num2",number2);
