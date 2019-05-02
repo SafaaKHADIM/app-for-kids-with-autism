@@ -36,8 +36,10 @@ import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import id.zelory.compressor.Compressor;
 //import pl.droidsonroids.gif.GifImageView;
@@ -77,13 +79,27 @@ public class ActivityLevel1 extends AndroidGame {
             this.startActivity(intent1);
 
         }
+
+
         //generer des nombres aleatoires
         Random rand = new Random();
+
         int number1 = rand.nextInt(i);
         /// il faut ajouter la condition pour qu il ne choisit pas le même objet c a d il faut que number1 soit diff de number2.....
         int number2 = rand.nextInt(i);
+        while(number2==number1){
+            number2 = rand.nextInt(i);
+        }
         int number3 = rand.nextInt(i);
+        while(number3==number1 || number3==number2){
+            number3 = rand.nextInt(i);
+        }
         int number4 = rand.nextInt(i);
+        while(number4==number1 || number4==number2 || number4==number3){
+            number4 = rand.nextInt(i);
+        }
+
+
         context = (Context) this;
 
        /* Intent _my_intent = new Intent(context,ActivityLevel3.class);
