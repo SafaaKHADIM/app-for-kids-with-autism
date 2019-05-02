@@ -524,7 +524,7 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
             Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
             Log.i("safaa",mCurrentPhotoPath);
             database._Dao()._add_object(myobject);
-            Intent intent1=new Intent(this, ActivityLevel1.class);
+            Intent intent1=new Intent(this, MainActivity.class);
             this.startActivity(intent1);
             }
         else{

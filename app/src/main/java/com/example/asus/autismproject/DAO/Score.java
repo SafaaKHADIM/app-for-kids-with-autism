@@ -56,9 +56,9 @@ public class Score {
         this.falseanswers = falseanswers;
     }
 
-    public Score(String _category, int _score, int rightanswers,int falseanswers) {
+    public Score( int _score, int rightanswers,int falseanswers) {
 
-        this._category = _category;
+
         this._score = _score;
         this.rightanswers=rightanswers;
         this.falseanswers=falseanswers;

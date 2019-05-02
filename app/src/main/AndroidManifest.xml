@@ -11,7 +11,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.BIND_INPUT_METHOD" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
     <application
         android:allowBackup="true"
@@ -49,7 +49,8 @@
         <activity android:name=".ActivityCategory" />
         <activity android:name=".AboutTheGame" />
         <activity android:name=".play" />
-        <activity android:name=".From1to2"></activity>
+        <activity android:name=".From1to2" />
+        <activity android:name=".ScoreV"></activity>
     </application>
 
 </manifest>

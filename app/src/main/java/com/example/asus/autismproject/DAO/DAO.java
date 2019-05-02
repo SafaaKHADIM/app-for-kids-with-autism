@@ -22,10 +22,10 @@ public interface DAO {
 
 //for score
     @Insert
-    public void _add_score(Object object);
+    public void _add_score(Score score);
 
     @Query("select * from SCORE")
-    public List<Object> _getScore();
+    public List<Score> _getScore();
 
 
     @Delete

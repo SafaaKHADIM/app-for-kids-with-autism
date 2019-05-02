@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.asus.autismproject.AboutTheGame;
 import com.example.asus.autismproject.ActivityLevel1;
 import com.example.asus.autismproject.DAO.Database;
+import com.example.asus.autismproject.DAO.Score;
 import com.example.asus.autismproject.From1to2;
 import com.example.asus.autismproject.Sprites.Static_Object.Myobject;
 
@@ -31,6 +32,7 @@ import java.util.Random;
 public class Screen1 extends Screen  {
     private final String TAG = "Screen1";
     public static Database database;
+    //public static Database database1;
     private int score=0 ;
     private int rightanswers=0;
     private int falseanswers=0;
@@ -88,7 +90,7 @@ public class Screen1 extends Screen  {
     private int myHack20=0;
     private int myHack21=0;
     private int myHack22=0;
-
+    private int end=0;
 
 
     private int myHack11=0;
@@ -120,6 +122,8 @@ public class Screen1 extends Screen  {
         super(game);
         context = (Context) game;
         database = Room.databaseBuilder(context.getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
+        //database1 = Room.databaseBuilder(context.getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "score").allowMainThreadQueries().build();
+
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
         myobject = new Myobject(Object1.avatar,game.getScreenWidth()/7,3*(game.getScreenHeight())/7,game.getScreenHeight()/8,game.getScreenWidth()/4);
         myobject12 = new Myobject(Object2.avatar,5*(game.getScreenWidth()/8),3*(game.getScreenHeight())/7,game.getScreenHeight()/8,game.getScreenWidth()/4);
@@ -593,6 +597,7 @@ public class Screen1 extends Screen  {
                     score=score+30;
                     rightanswers++;
                     question8=0;
+                    end=1;
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question8==1){
                     hand.voice_false.play(1);
@@ -610,7 +615,12 @@ public class Screen1 extends Screen  {
 
             //___________________________________________________end of questions_____________________________________________________
 
-
+            //_____________________________________enregistrer le score__________________________________________
+           /* if(end==1){
+                Score myscore= new Score(score,rightanswers,falseanswers);
+                Screen1.database._Dao()._add_score(myscore);
+            }*/
+            //____________________________________end of score
 
 
 

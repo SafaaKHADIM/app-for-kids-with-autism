@@ -1,9 +1,7 @@
 package com.example.asus.autismproject;
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,8 +38,8 @@ public class ActivitySettings extends AppCompatActivity {
 
     }
     public void score(View view) {
-        //Intent intent1=new Intent(this, choix2.class);
-        //this.startActivity(intent1);
+        Intent intent1=new Intent(this, ScoreV.class);
+        this.startActivity(intent1);
 
     }
     private Handler handler;

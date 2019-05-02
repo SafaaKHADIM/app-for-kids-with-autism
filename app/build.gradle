@@ -4,8 +4,9 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.asus.autismproject"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 28
+     //   multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -16,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    // Temporary fix until alpha10
+  /*  packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }*/
 }
 
 dependencies {
@@ -53,6 +58,9 @@ dependencies {
     implementation 'com.github.nipun-birla:Swipe3DRotateView:0.0.1'
     //buttons
     implementation 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
+    //statistique graph
+   // implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+   // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 
 
 }
