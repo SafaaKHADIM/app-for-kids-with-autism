@@ -71,6 +71,12 @@ public class ActivityLevel1 extends AndroidGame {
 
 
         int i= objcts.size();
+        if(i<4){
+            Toast.makeText(this,"vous n'avez pas suffisement d'objet dans cette catégorie vous devez les ajouter ",Toast.LENGTH_LONG).show();
+            Intent intent1=new Intent(this, AddObject.class);
+            this.startActivity(intent1);
+
+        }
         //generer des nombres aleatoires
         Random rand = new Random();
         int number1 = rand.nextInt(i);

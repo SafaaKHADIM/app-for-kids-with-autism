@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
@@ -43,6 +44,13 @@ public class ActivityCategory extends AppCompatActivity {
             String mycategorie = myobject.getCategorie();
             arraySpinner.add(mycategorie);
         }
+        int i= arraySpinner.size();
+        if(i==0){
+            Toast.makeText(this,"vous devez ajouter un objet d'abord",Toast.LENGTH_LONG).show();
+            Intent intent1=new Intent(this, AddObject.class);
+            this.startActivity(intent1);
+        }
+        
         Spinner myspinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
