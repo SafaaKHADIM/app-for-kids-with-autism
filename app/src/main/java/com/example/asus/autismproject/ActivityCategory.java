@@ -23,6 +23,7 @@ import java.util.List;
 public class ActivityCategory extends AppCompatActivity {
     public static Database database;
     public String category;
+    int add=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,20 @@ public class ActivityCategory extends AppCompatActivity {
         List<Object> objs = ActivityCategory.database._Dao()._getObject();
         for(Object myobject: objs) {
             String mycategorie = myobject.getCategorie();
-            arraySpinner.add(mycategorie);
+            int j=arraySpinner.size();
+            Log.e("Safaa", "   hada j   "+j);
+            for(int i=0;i<j; i++){
+                if(arraySpinner.get(i).equals(mycategorie)){
+                    Log.e("Safaa", "dkhelt la boucle "+i+"  ou hada j   "+j);
+                    add=1;
+                    break;
+                }
+                add=0;
+
+            }
+            if(add==0){
+                Log.e("Safaa", "zedt l'objet");
+            arraySpinner.add(mycategorie);}
         }
         int i= arraySpinner.size();
         if(i==0){
@@ -50,7 +64,7 @@ public class ActivityCategory extends AppCompatActivity {
             Intent intent1=new Intent(this, AddObject.class);
             this.startActivity(intent1);
         }
-        
+
         Spinner myspinner = (Spinner) findViewById(R.id.category);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);

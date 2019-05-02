@@ -49,7 +49,7 @@ import info.androidhive.fontawesome.FontDrawable;
 
 public class AddObject extends AppCompatActivity implements ExampleDialog.ExampleDialogListener{
 
-
+int add=0;
 
 
 
@@ -294,7 +294,23 @@ public class AddObject extends AppCompatActivity implements ExampleDialog.Exampl
         List<Object> objs = AddObject.database._Dao()._getObject();
         for(Object myobject: objs) {
             String mycategorie = myobject.getCategorie();
-            arraySpinner.add(mycategorie);
+            int j=arraySpinner.size();
+            Log.e("Safaa", "   hada j   "+j);
+            for(int i=0;i<j; i++){
+                if(arraySpinner.get(i).equals(mycategorie)){
+                    Log.e("Safaa", "dkhelt la boucle "+i+"  ou hada j   "+j);
+                    add=1;
+                    break;
+                }
+                add=0;
+
+            }
+            if(add==0){
+                Log.e("Safaa", "zedt l'objet");
+                arraySpinner.add(mycategorie);}
+
+
+
         }
         Spinner myspinner = (Spinner) findViewById(R.id.categories);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
