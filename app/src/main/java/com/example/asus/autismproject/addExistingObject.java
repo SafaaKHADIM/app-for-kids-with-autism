@@ -15,7 +15,7 @@ public class addExistingObject extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_existing_object);
 
         button = (Button)findViewById(R.id.button) ;
 
@@ -23,9 +23,16 @@ public class addExistingObject extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
-                startActivityForResult(intent, 7);
+               //intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent = new Intent("com.sec.android.app.myfiles.PICK_DATA");
+                intent.putExtra("CONTENT_TYPE", "*/*");
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
+                //intent.setType("*/*");
+                //Intent i = Intent.createChooser(intent, "View Default File Manager");
+                //startActivityForResult(i, 1);
+               startActivityForResult(intent, 7);
+
+
 
             }
         });

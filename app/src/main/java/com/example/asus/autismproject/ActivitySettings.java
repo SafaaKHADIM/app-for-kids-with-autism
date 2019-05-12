@@ -28,8 +28,8 @@ public class ActivitySettings extends AppCompatActivity {
 
     }
     public void background(View view) {
-       // Intent intent1=new Intent(this, choix2.class);
-        //this.startActivity(intent1);
+        Intent intent1=new Intent(this, addExistingObject.class);
+        this.startActivity(intent1);
 
     }
     public void language(View view) {
