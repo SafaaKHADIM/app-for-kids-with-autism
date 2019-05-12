@@ -39,6 +39,7 @@ import com.google.gson.Gson;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -547,7 +548,7 @@ int add=0;
         }
 
         if(a==0) {
-            //base64
+            //base64________________________________________________________________________________________________
             try {
                 Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(mCurrentPhotoPath));
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -558,7 +559,7 @@ int add=0;
                 e.printStackTrace();
             }
 
-//_______________________________________
+
             File file = new File(pathSave1);
             byte[] bytes = new byte[0];
             try {
@@ -594,14 +595,33 @@ int add=0;
             }
 
             String encodedvoice2 = Base64.encodeToString(bytes1, 0);
-//_____________________________________________
-            //fin base64
-            Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
 
-            //convert the object to json 
+            //fin base64__________________________________________________________________________________
+
+
+
+            //convert the object to json___________________________________________________________________________
             Object myobjectjson = new Object(  description,  encodedImage,  encodedvoice2, encodedvoice1,  categorie);
             Gson gson = new Gson();
-            String json = gson.toJson(myobjectjson);
+            try {
+                gson.toJson(myobjectjson, new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+"autismProject"+UUID.randomUUID().toString()+"android.json"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //_______________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+            Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
 
 
 
