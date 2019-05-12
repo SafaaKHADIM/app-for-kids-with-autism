@@ -604,7 +604,7 @@ int add=0;
             Object myobjectjson = new Object(  description,  encodedImage,  encodedvoice2, encodedvoice1,  categorie);
             Gson gson = new Gson();
             try {
-                gson.toJson(myobjectjson, new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download"+"/"+"autismProject"+UUID.randomUUID().toString()+"android.json"));
+                gson.toJson(myobjectjson, new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download"+"/"+"autismProject"+categorie+"_"+description+UUID.randomUUID().toString()+"android.json"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
