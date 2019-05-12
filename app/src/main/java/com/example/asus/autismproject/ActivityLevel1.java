@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.Toast;
 
 import com.example.asus.autismproject.DAO.Database;
@@ -115,7 +116,7 @@ public class ActivityLevel1 extends AndroidGame {
         Object Myobject3 = objcts.get(number3);
         Object Myobject4 = objcts.get(number4);
          //image
-        try {
+       try {
             Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(Myobject1.getImage()));
             Object1.avatar =(Image) new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
             Bitmap bitmap2 = new Compressor(this).compressToBitmap(new File(Myobject2.getImage()));
@@ -127,6 +128,21 @@ public class ActivityLevel1 extends AndroidGame {
             } catch (IOException e) {
             e.printStackTrace();
         }
+
+       //this is a new methode using base64
+      /* byte[] decodedString1 = Base64.decode(Myobject1.getImage(), Base64.DEFAULT);
+        Bitmap bitmap1 = BitmapFactory.decodeByteArray(decodedString1, 0, decodedString1.length);
+        Object1.avatar =(Image) new AndroidImage(bitmap1,Graphics.ImageFormat.ARGB8888);
+        byte[] decodedString2 = Base64.decode(Myobject1.getImage(), Base64.DEFAULT);
+        Bitmap bitmap2 = BitmapFactory.decodeByteArray(decodedString2, 0, decodedString2.length);
+        Object2.avatar =(Image) new AndroidImage(bitmap2,Graphics.ImageFormat.ARGB8888);
+        byte[] decodedString3 = Base64.decode(Myobject1.getImage(), Base64.DEFAULT);
+        Bitmap bitmap3 = BitmapFactory.decodeByteArray(decodedString3, 0, decodedString3.length);
+        Object3.avatar =(Image) new AndroidImage(bitmap3,Graphics.ImageFormat.ARGB8888);
+        byte[] decodedString4 = Base64.decode(Myobject1.getImage(), Base64.DEFAULT);
+        Bitmap bitmap4 = BitmapFactory.decodeByteArray(decodedString4, 0, decodedString4.length);
+        Object4.avatar =(Image) new AndroidImage(bitmap4,Graphics.ImageFormat.ARGB8888);
+*/
         //sound
         SoundPool s =new SoundPool(5,AudioManager.STREAM_MUSIC,0);
         //voice question

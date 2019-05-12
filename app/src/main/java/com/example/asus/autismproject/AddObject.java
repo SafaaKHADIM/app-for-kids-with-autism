@@ -34,16 +34,24 @@ import android.widget.Toast;
 import com.beardedhen.androidbootstrap.TypefaceProvider;
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
+import com.google.gson.Gson;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+import android.util.Base64;
 
+import org.apache.commons.io.FileUtils;
+
+import id.zelory.compressor.Compressor;
 import info.androidhive.fontawesome.FontDrawable;
 
 
@@ -64,6 +72,8 @@ int add=0;
     MediaPlayer mediaPlayer1,mediaPlayer2;
     ImageView imageView;
     File photoFile = null;
+    byte[] mybytes;
+    String encodedImage;
 
 
 
@@ -537,7 +547,64 @@ int add=0;
         }
 
         if(a==0) {
+            //base64
+            try {
+                Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(mCurrentPhotoPath));
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap1.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+                mybytes = baos.toByteArray();
+                encodedImage = Base64.encodeToString(mybytes, Base64.DEFAULT);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+//_______________________________________
+            File file = new File(pathSave1);
+            byte[] bytes = new byte[0];
+            try {
+                bytes = FileUtils.readFileToByteArray(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String encodedvoice1 = Base64.encodeToString(bytes, 0);
+
+/*
+            byte[] decoded = Base64.decode(encodedvoice1, 0);
+            try
+            {
+                File file2 = new File(Environment.getExternalStorageDirectory() + "/hello-5.wav");
+                FileOutputStream os = new FileOutputStream(file2, true);
+                os.write(decoded);
+                os.close();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+ */
+
+
+            File file1 = new File(pathSave2);
+            byte[] bytes1 = new byte[0];
+            try {
+                bytes1 = FileUtils.readFileToByteArray(file1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String encodedvoice2 = Base64.encodeToString(bytes1, 0);
+//_____________________________________________
+            //fin base64
             Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
+
+            //convert the object to json 
+            Object myobjectjson = new Object(  description,  encodedImage,  encodedvoice2, encodedvoice1,  categorie);
+            Gson gson = new Gson();
+            String json = gson.toJson(myobjectjson);
+
+
+
             Log.i("safaa",mCurrentPhotoPath);
             database._Dao()._add_object(myobject);
             Intent intent1=new Intent(this, MainActivity.class);
