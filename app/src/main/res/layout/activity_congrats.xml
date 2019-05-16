@@ -80,7 +80,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/oval"
         android:onClick="finish"
-        android:text="next Level"
+        android:text="@string/finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

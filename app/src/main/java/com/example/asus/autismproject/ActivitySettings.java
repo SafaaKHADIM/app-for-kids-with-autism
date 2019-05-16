@@ -31,18 +31,18 @@ public class ActivitySettings extends AppCompatActivity {
         this.startActivity(intent1);
 
     }
-    public void background(View view) {
+    public void addexistingobject(View view) {
         Intent intent1=new Intent(this, addExistingObject.class);
         this.startActivity(intent1);
 
     }
-    public void language(View view) {
+    public void objectlist(View view) {
         Intent intent1=new Intent(this, objectslist.class);
         this.startActivity(intent1);
 
     }
     public void score(View view) {
-        Intent intent1=new Intent(this, addExistingObject.class);
+        Intent intent1=new Intent(this, ScoreV.class);
         this.startActivity(intent1);
 
     }

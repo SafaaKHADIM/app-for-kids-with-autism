@@ -2,16 +2,14 @@ package com.example.asus.autismproject;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+
 
 
 import com.example.asus.autismproject.DAO.Database;

@@ -82,7 +82,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/oval"
         android:onClick="next"
-        android:text="next Level"
+        android:text="@string/next_Level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

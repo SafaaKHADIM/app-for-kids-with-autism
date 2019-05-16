@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">autismProject</string>
     <string name="Category">Category</string>
-    <string name="add_object">add object</string>
+    <string name="add_object">add new object</string>
+    <string name="add_object_existing">add existing object</string>
     <string name="choose_bakghround">choose background</string>
     <string name="choose_language">choose language</string>
     <string name="view_score">view score</string>
@@ -18,6 +19,9 @@
     <string name="Categories">Categories</string>
     <string name="Answer">Answer</string>
     <string name="Question">Question</string>
-
+    <string name="click">Click here to open file manager explorer and pick any file</string>
+    <string name="next_Level">next level</string>
+    <string name="finish">finish</string>
+    <string name="object_list">Object List</string>
 
 </resources>

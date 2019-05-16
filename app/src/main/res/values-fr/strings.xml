@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">autismProject</string>
     <string name="Category">Catégorie</string>
-    <string name="add_object">Ajouter un objet</string>
+    <string name="add_object">Ajouter un nouveau objet</string>
+    <string name="add_object_existing">Ajouter un objet existant</string>
     <string name="choose_bakghround">Choisir le background</string>
     <string name="choose_language">Choisir la langue</string>
     <string name="view_score">Visulaiser le score</string>
@@ -19,4 +20,8 @@
     <string name="Categories">Catégories</string>
     <string name="Answer">Réponse</string>
     <string name="Question">Question</string>
+    <string name="click">Cliquer ici pour ouvrir file manager explorer et choisir un fichier</string>
+    <string name="next_Level">Niveau suivant</string>
+    <string name="finish">terminer</string>
+    <string name="object_list">Liste des objets</string>
 </resources>

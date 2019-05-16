@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">autismProject</string>
     <string name="Category">الفئة</string>
-    <string name="add_object">إضافة جسم</string>
+    <string name="add_object">إضافة جسم جديد</string>
+    <string name="add_object_existing">إضافة جسم موجود</string>
     <string name="choose_bakghround">اختر خلفية</string>
     <string name="choose_language">اختر اللغة</string>
     <string name="view_score">عرض النتيجة</string>
@@ -19,4 +20,8 @@
     <string name="Categories">فئة</string>
     <string name="Answer">إجابة</string>
     <string name="Question">سؤال</string>
+    <string name="click">انقر هنا لفتح مستكشف إدارة الملفات واختيار أي ملف</string>
+    <string name="next_Level">المستوى التالي</string>
+    <string name="finish">إنهاء</string>
+    <string name="object_list">قائمة</string>
 </resources>
