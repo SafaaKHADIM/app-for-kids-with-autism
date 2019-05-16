@@ -4,9 +4,9 @@
     android:id="@+id/addExistingObject"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/backgroundkids"
     tools:context=".addExistingObject"
-    android:background="#FFF8E1">
+    >
 
     <Button
         android:text="Click here to open file manager explorer and pick any file "

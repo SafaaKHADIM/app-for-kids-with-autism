@@ -9,7 +9,10 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+
 
 import com.example.asus.autismproject.DAO.Database;
 
@@ -34,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 5000); */  //5 seconds
         showButtons();
+
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
     }
 
 

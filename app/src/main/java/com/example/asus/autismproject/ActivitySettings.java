@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class ActivitySettings extends AppCompatActivity {
@@ -19,6 +20,9 @@ public class ActivitySettings extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();*/
         showButtons();
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
     }
 
 

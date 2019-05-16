@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.example.asus.autismproject.AboutTheGame;
 import com.example.asus.autismproject.ActivityLevel1;
+import com.example.asus.autismproject.Congrats;
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Score;
 import com.example.asus.autismproject.From1to2;
@@ -598,6 +599,8 @@ public class Screen1 extends Screen  {
                     rightanswers++;
                     question8=0;
                     end=1;
+                    Intent intent1=new Intent(context, Congrats.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent1);
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question8==1){
                     hand.voice_false.play(1);

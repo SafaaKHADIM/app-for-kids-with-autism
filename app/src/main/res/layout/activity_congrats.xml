@@ -4,48 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout"
-
     android:background="@drawable/backgroundkids"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/btnplay"
-        android:layout_width="204dp"
-        android:layout_height="42dp"
+    tools:context=".Congrats">
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="130dp"
+        android:layout_height="157dp"
         android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/oval"
-        android:onClick="play"
-        android:text="@string/play"
+        android:src="@drawable/dexter1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
+        app:layout_constraintVertical_bias="0.739" />
 
-    <Button
-        android:id="@+id/btnsetting"
-        android:layout_width="203dp"
-        android:layout_height="39dp"
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="83dp"
+        android:layout_height="126dp"
         android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/settings"
-        android:background="@drawable/oval"
-        android:onClick="settings"
+        android:src="@drawable/penelope"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="151dp"
-        android:layout_height="208dp"
+        android:layout_width="149dp"
+        android:layout_height="210dp"
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="8dp"
@@ -54,25 +49,42 @@
         android:src="@drawable/hamtaro4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="143dp"
-        android:layout_height="225dp"
+        android:layout_width="151dp"
+        android:layout_height="200dp"
         android:layout_marginStart="8dp"
 
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/bijou2"
+        android:src="@drawable/stan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.925" />
 
+    <Button
+        android:id="@+id/btnlevel1"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/oval"
+        android:onClick="finish"
+        android:text="next Level"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.369" />
 </android.support.constraint.ConstraintLayout>

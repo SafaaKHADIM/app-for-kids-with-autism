@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class ActivityLanguage extends AppCompatActivity {
@@ -21,6 +22,9 @@ public class ActivityLanguage extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();*/
        showButtons();
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
     }
     public void eng(View view) {
        // Intent intent1=new Intent(this, AddObject.class);

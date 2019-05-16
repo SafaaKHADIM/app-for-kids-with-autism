@@ -3,6 +3,7 @@ package com.example.asus.autismproject;
 import android.arch.persistence.room.Room;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Score;
@@ -20,6 +21,9 @@ public class ScoreV extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+        getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "score").allowMainThreadQueries().build();
         // in this example, a LineChart is initialized from xml
       /*  LineChart chart = (LineChart) findViewById(R.id.chart);
