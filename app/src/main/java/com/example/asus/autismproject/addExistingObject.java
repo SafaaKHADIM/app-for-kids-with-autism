@@ -84,7 +84,7 @@ public class addExistingObject extends AppCompatActivity {
                     }
 
 
-                    byte[] decoded = Base64.decode( myobjectjson.getFind_voice(), 0);
+                  /*  byte[] decoded = Base64.decode( myobjectjson.getFind_voice(), 0);
 
                     String path1=Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+UUID.randomUUID().toString()+"_audio_record.3gp";
                     try
@@ -147,8 +147,9 @@ public class addExistingObject extends AppCompatActivity {
                     String voice=path2;
                     String find_voice=path1;
                     String categorie=myobjectjson.getCategorie();
-                    Object myobject=new Object(  description,  image,  path2, find_voice,  categorie);
-                    database._Dao()._add_object(myobject);
+                    Object myobject=new Object(  description,  image,  path2, find_voice,  categorie);*/
+                    myobjectjson.setDescription(myobjectjson.getDescription()+"/_old");
+                    database._Dao()._add_object(myobjectjson);
 
                 }
                 break;

@@ -551,8 +551,9 @@ int add=0;
             //base64________________________________________________________________________________________________
             try {
                 Bitmap bitmap1 = new Compressor(this).compressToBitmap(new File(mCurrentPhotoPath));
+                Bitmap bitmap2 = new Compressor(this).compressToBitmap(new File(mCurrentPhotoPath));
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap1.compress(Bitmap.CompressFormat.JPEG, 100, baos); //bm is the bitmap object
+                bitmap2.compress(Bitmap.CompressFormat.JPEG, 0, baos); //bm is the bitmap object
                 mybytes = baos.toByteArray();
                 encodedImage = Base64.encodeToString(mybytes, Base64.DEFAULT);
             } catch (IOException e) {
@@ -570,7 +571,7 @@ int add=0;
 
             String encodedvoice1 = Base64.encodeToString(bytes, 0);
 
-/*
+
             byte[] decoded = Base64.decode(encodedvoice1, 0);
             try
             {
@@ -583,10 +584,10 @@ int add=0;
             {
                 e.printStackTrace();
             }
- */
 
 
-            File file1 = new File(pathSave2);
+
+           File file1 = new File(pathSave2);
             byte[] bytes1 = new byte[0];
             try {
                 bytes1 = FileUtils.readFileToByteArray(file1);
@@ -601,15 +602,24 @@ int add=0;
 
 
             //convert the object to json___________________________________________________________________________
-            Object myobjectjson = new Object(  description,  encodedImage,  encodedvoice2, encodedvoice1,  categorie);
+            Object myobjectjson = new Object(  description,encodedImage,  pathSave2, pathSave1,  categorie);
+
+
+            Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
+
             Gson gson = new Gson();
             try {
-                gson.toJson(myobjectjson, new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Download"+"/"+"autismProject"+categorie+"_"+description+UUID.randomUUID().toString()+"android.json"));
+               // gson.toJson(myobject, new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+"autismProject"+categorie+"_"+description+"_"+UUID.randomUUID().toString()+"android.json"));
+               // gson.toJson(myobject);
+                FileWriter fileWriter = new FileWriter(Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+"autismProject"+categorie+"_"+description+"_"+UUID.randomUUID().toString()+"android.json");
+                fileWriter.write(gson.toJson(myobject));
+                fileWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             //_______________________________________________________________________________________________________
 
+            Log.e("safaa",gson.toJson(myobject));
 
 
 
@@ -621,7 +631,6 @@ int add=0;
 
 
 
-            Object myobject = new Object(  description,  mCurrentPhotoPath,  pathSave2, pathSave1,  categorie);
 
 
 

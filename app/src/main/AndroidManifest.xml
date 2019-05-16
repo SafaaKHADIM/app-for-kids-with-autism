@@ -51,7 +51,8 @@
         <activity android:name=".play" />
         <activity android:name=".From1to2" />
         <activity android:name=".ScoreV" />
-        <activity android:name=".addExistingObject"></activity>
+        <activity android:name=".addExistingObject" />
+        <activity android:name=".objectslist"></activity>
     </application>
 
 </manifest>
