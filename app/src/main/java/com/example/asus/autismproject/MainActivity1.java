@@ -115,7 +115,7 @@ public class MainActivity1 extends AppCompatActivity {
     }
 
 
-    public static void delete_school(Object obj){
+    public static void delete_object(Object obj){
 
 
         database._Dao()._deleteObject(obj);

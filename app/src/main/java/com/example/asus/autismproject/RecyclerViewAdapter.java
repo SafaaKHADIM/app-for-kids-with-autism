@@ -59,9 +59,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .load(mImages.get(position))
                 .into(holder.image);
 
-        holder.imageName.setText(mImageNames.get(position));
-        holder.description.setText(mdescription.get(position));
 
+        holder.description.setText(mdescription.get(position));
+        holder.imageName.setText(mImageNames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, GalleryActivity.class);
 
-                String item = mImageNames.get(position);
+                String item = mdescription.get(position);
 
                 List<Object> objects = MainActivity.database._Dao()._getObject();
                 for(Object obj: objects){
@@ -78,7 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     if(label.equals(item)){
                         intent.putExtra("image_url",obj.getImage());
-                        intent.putExtra("image_name",obj.getDescription());
+                        intent.putExtra("image_name",obj.getCategorie());
                         intent.putExtra("image_description",obj.getDescription());
                         mContext.startActivity(intent);
                     }
@@ -104,7 +104,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return mImageNames.size();
+        return mdescription.size();
     }
 
 
@@ -127,8 +127,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
   public void deleteItem(int position) {
-      String item = mImageNames.get(position);
-        mImageNames.remove(position);
+      String item = mdescription.get(position);
+      mdescription.remove(position);
 
         notifyItemRemoved(position);
 
@@ -138,8 +138,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
           if(label.equals(item)){
 
-             MainActivity1.delete_school(obj);
-             // Toast.makeText(this,"school deleted",Toast.LENGTH_LONG).show();
+             MainActivity1.delete_object(obj);
+
 
           }
 
