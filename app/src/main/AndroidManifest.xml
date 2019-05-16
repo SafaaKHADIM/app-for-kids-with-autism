@@ -53,7 +53,9 @@
         <activity android:name=".ScoreV" />
         <activity android:name=".addExistingObject" />
         <activity android:name=".objectslist" />
-        <activity android:name=".Congrats"></activity>
+        <activity android:name=".Congrats" />
+        <activity android:name=".MainActivity1" />
+        <activity android:name=".GalleryActivity"></activity>
     </application>
 
 </manifest>

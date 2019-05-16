@@ -37,7 +37,7 @@ public class ActivitySettings extends AppCompatActivity {
 
     }
     public void objectlist(View view) {
-        Intent intent1=new Intent(this, objectslist.class);
+        Intent intent1=new Intent(this, MainActivity1.class);
         this.startActivity(intent1);
 
     }
