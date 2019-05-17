@@ -26,4 +26,5 @@
     <string name="object_list">Liste des objets</string>
     <string name="boy">garcon</string>
     <string name="girl">fille</string>
+    <string name="aboutus">Ce jeu a pour but d'aider les enfants autistes a reconnaitre les objet et diriger la main vers un objet reconnu afin d'apprendre les directions. Vous devez d'abord ajouter les objet en précisant la catégorie, et chaque catégorie doit contenir au moins 4 objet si vous effacer par erreur un objet ne panniquez pas, vous pouvez le récuperer en ajoutant un objet existant et selectionner le fichier json ayant le même nom et catégorie</string>
 </resources>

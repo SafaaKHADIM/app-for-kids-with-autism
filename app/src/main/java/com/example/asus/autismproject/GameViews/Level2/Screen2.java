@@ -313,7 +313,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack7=24;
+                    myHack7=25;
                 }
 
             }
@@ -349,7 +349,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack9=29;
+                    myHack9=30;
                 }
 
             }
@@ -389,7 +389,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack11=34;
+                    myHack11=35;
                 }
 
             }
@@ -507,7 +507,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack15=59;
+                    myHack15=60;
                 }
 
             }
@@ -539,7 +539,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack17=64;
+                    myHack17=65;
                 }
 
             }
@@ -575,7 +575,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack19=69;
+                    myHack19=70;
                 }
 
             }
@@ -610,7 +610,7 @@ public class Screen2 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack21=74;
+                    myHack21=75;
                 }
 
             }

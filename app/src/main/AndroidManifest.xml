@@ -56,7 +56,8 @@
         <activity android:name=".Congrats" />
         <activity android:name=".MainActivity1" />
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".boyorgirl"></activity>
+        <activity android:name=".boyorgirl" />
+        <activity android:name=".apropos"></activity>
     </application>
 
 </manifest>
