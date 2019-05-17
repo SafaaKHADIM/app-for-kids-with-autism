@@ -4,6 +4,7 @@ import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,12 @@ import android.widget.Button;
 import com.example.asus.autismproject.DAO.Database;
 
 public class MainActivity extends AppCompatActivity {
+
+
     public static Database database;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();*/
-        final MediaPlayer mp1 = MediaPlayer.create(this,R.raw.hamtarosong);
+        final MediaPlayer mp1 = (MediaPlayer)MediaPlayer.create(this,R.raw.hamtarosong);
         mp1.start();
        /* Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

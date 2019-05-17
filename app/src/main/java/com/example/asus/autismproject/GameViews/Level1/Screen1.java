@@ -404,10 +404,13 @@ public class Screen1 extends Screen  {
 
 
             if(level2==1){
+
                 //int i=4;
                // Random rand = new Random();
                 //int number1 = rand.nextInt(i);
                 if(myHack11==46) {
+                    direction_main.setX(0);
+                    direction_main.setY(0);
                     myobject.setX(350);
                     myobject.setY(1200);
                     myobject12.setX(350);
@@ -507,7 +510,7 @@ public class Screen1 extends Screen  {
                     mY = 0;
                     direction_main.setX(mX);
                     direction_main.setY(mY);
-                    myHack15=59;
+                    myHack15=58;
                 }
 
             }
