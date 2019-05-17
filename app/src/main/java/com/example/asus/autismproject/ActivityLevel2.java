@@ -59,7 +59,7 @@ public class ActivityLevel2 extends AndroidGame {
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
         Bundle b = getIntent().getExtras();
         category=b.getString("category");
-        List<Object> objects1 = ActivityLevel1.database._Dao()._getObject();
+        List<Object> objects1 = ActivityLevel2.database._Dao()._getObject();
         ArrayList<Object> objcts= new ArrayList<Object>();
         for(Object obj: objects1){
 
