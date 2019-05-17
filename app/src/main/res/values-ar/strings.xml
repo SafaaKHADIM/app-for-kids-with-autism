@@ -24,4 +24,6 @@
     <string name="next_Level">المستوى التالي</string>
     <string name="finish">إنهاء</string>
     <string name="object_list">قائمة</string>
+    <string name="boy">ولد</string>
+    <string name="girl">بنت</string>
 </resources>

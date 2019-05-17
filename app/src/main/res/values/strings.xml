@@ -23,5 +23,7 @@
     <string name="next_Level">next level</string>
     <string name="finish">finish</string>
     <string name="object_list">Object List</string>
+    <string name="boy">boy</string>
+    <string name="girl">girl</string>
 
 </resources>

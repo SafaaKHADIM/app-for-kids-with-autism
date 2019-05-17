@@ -26,7 +26,7 @@ public class Levels extends AppCompatActivity {
        showButtons();
     }
     public void level1(View view) {
-        Intent intent1=new Intent(this, ActivityLevel1.class);
+        Intent intent1=new Intent(this, boyorgirl.class);
         intent1.putExtra("category",category);
         Log.e("safaa hhhhhh", "category: "+category);
         this.startActivity(intent1);

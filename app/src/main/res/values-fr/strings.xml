@@ -24,4 +24,6 @@
     <string name="next_Level">Niveau suivant</string>
     <string name="finish">terminer</string>
     <string name="object_list">Liste des objets</string>
+    <string name="boy">garcon</string>
+    <string name="girl">fille</string>
 </resources>
