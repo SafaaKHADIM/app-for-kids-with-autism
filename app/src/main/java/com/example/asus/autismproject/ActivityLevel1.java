@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.widget.Toast;
 
+import com.e_mobadara.audiomanaging.moblibAudioFileManager;
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Object;
 import com.example.asus.autismproject.GameViews.Level1.Screen1;
@@ -170,7 +171,8 @@ public class ActivityLevel1 extends AndroidGame {
 
         //hand
         hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
-        hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
+       // hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
+        hand.voice_right= moblibAudioFileManager.getRandomAudioFile(this,"good","AR");
         hand.voice_false =  (AndroidSound) getAudio().createSound(R.raw.create);
         //background
         background.avatar= getGraphics().newImage(R.drawable.board1,Graphics.ImageFormat.ARGB8888,getResources());

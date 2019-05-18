@@ -191,7 +191,7 @@ public class Screen3 extends Screen  {
             if(lecture16==0 && myHack6>=65 && question5==1) {
                 myHack7=60; myHack9=60; myHack11=60;
                 if(object1GotHit() && question5==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     question5=0;
                 }
                 if((object2GotHit() || object3GotHit() || object4GotHit()) && question5==1){
@@ -219,7 +219,7 @@ public class Screen3 extends Screen  {
             if(lecture18==0 && myHack8>=65 && question6==1) {
                 myHack9=60; myHack11=60;
                 if(object2GotHit() && question6==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     question6=0;
                 }
                 if((object1GotHit() || object3GotHit() || object4GotHit()) && question6==1){
@@ -251,7 +251,7 @@ public class Screen3 extends Screen  {
             if(lecture20==0 && myHack10>=65 && question7==1) {
                 myHack11=60;
                 if(object3GotHit() && question7==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     question7=0;
                 }
                 if((object2GotHit() || object1GotHit() || object4GotHit()) && question7==1){
@@ -279,7 +279,7 @@ public class Screen3 extends Screen  {
             myHack11++;
             if(lecture22==0 && myHack12>=65 && question4==1) {
                 if(object4GotHit() && question4==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     question4=0;
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question4==1){

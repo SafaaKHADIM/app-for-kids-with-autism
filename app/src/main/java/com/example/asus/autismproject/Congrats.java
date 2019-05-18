@@ -20,7 +20,7 @@ public class Congrats extends AppCompatActivity {
         mp1.start();
     }
     public void finish(View view) {
-         Intent intent1=new Intent(this, MainActivity.class);
+         Intent intent1=new Intent(this, MainAppActivity.class);
         this.startActivity(intent1);
 
 

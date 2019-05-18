@@ -26,5 +26,5 @@
     <string name="boy">boy</string>
     <string name="girl">girl</string>
     <string name="aboutus">This game aims to help autistic children recognize the object and direct the hand to a recognized object to learn directions. You must first add the objects by specifying the category, and each category must contain at least 4 objects if you mistakenly delete an object , you can retrieve it by adding an existing object and select the json file having the same name and category</string>
-
+    <string name="abtus">about the game</string>
 </resources>

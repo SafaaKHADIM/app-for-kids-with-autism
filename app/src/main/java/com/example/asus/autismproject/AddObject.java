@@ -44,7 +44,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -640,7 +639,7 @@ int add=0;
 
             Log.i("safaa",mCurrentPhotoPath);
             database._Dao()._add_object(myobject);
-            Intent intent1=new Intent(this, MainActivity.class);
+            Intent intent1=new Intent(this, MainAppActivity.class);
             this.startActivity(intent1);
             }
         else{

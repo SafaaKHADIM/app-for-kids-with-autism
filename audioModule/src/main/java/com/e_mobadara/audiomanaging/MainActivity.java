@@ -7,19 +7,23 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.e_mobadara.Adapter.TabAdapter;
 
-public class MainModuleActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainModuleActivity";
+    private static final String TAG = "MainActivity";
 
     ViewPager viewPager1;
     TabLayout tabLayout1;
@@ -33,7 +37,7 @@ public class MainModuleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_module_main);
+        setContentView(R.layout.activity_main);
         if(getIntent().getExtras()!=null){langue=getIntent().getStringExtra("langue");}
         setupTablayout();
         ActionBar actionbar = getSupportActionBar();
@@ -140,7 +144,7 @@ public class MainModuleActivity extends AppCompatActivity {
         });
     }
     void reloadActivity(){
-        Intent intent = new Intent(this,MainModuleActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("langue",langue);
         startActivity(intent);
         finish();

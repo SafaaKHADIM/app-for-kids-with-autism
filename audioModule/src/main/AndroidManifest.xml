@@ -15,7 +15,7 @@
 
         android:theme="@style/AppTheme"
         tools:replace="theme">
-        <activity android:name=".MainModuleActivity">
+        <activity android:name=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.e_mobadara.audiomanaging.AudioSettingsActivity" />
@@ -23,7 +23,7 @@
         <activity android:name=".addAudioFile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.e_mobadara.audiomanaging.MainModuleActivity" />
+                android:value="com.e_mobadara.audiomanaging.MainActivity" />
         </activity>
         <activity android:name=".AudioSettingsActivity">
         </activity>

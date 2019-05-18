@@ -116,7 +116,7 @@ public class addAudioFile extends AppCompatActivity {
                  * Au cas de confirmation du fichier audio, on doit :
                  * verifier la présence d'un répértoire "audio files" dans "external storage",sinon créer le.
                  * Vérifier si le fichier et à l'interieur du répértoire "audio files",sinon créer le.
-                 * valider l'opération et dériger l'utilisateur vers l'activité "MainModuleActivity".
+                 * valider l'opération et dériger l'utilisateur vers l'activité "MainActivity".
                  */
                 if(audioType.equals(folder_excellent)||audioType.equals(folder_good)||audioType.equals(folder_encouragement)) {
                     current_folder = audioType;
@@ -139,7 +139,7 @@ public class addAudioFile extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent i = new Intent(this,MainModuleActivity.class);
+                Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
                 finish();
                 return true;
@@ -291,7 +291,7 @@ public class addAudioFile extends AppCompatActivity {
         }
     }
     void reloadActivity(){
-        Intent intent = new Intent(this,MainModuleActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("langue",audioLangue);
         startActivity(intent);
         finish();

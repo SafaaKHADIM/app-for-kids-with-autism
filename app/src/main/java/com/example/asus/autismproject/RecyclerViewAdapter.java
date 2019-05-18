@@ -72,7 +72,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 String item = mdescription.get(position);
 
-                List<Object> objects = MainActivity.database._Dao()._getObject();
+                List<Object> objects = MainAppActivity.database._Dao()._getObject();
                 for(Object obj: objects){
                     String label =obj.getDescription();
 
@@ -132,7 +132,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         notifyItemRemoved(position);
 
-      List<Object> objects = MainActivity.database._Dao()._getObject();
+      List<Object> objects = MainAppActivity.database._Dao()._getObject();
       for(Object obj: objects){
           String label =obj.getDescription();
 

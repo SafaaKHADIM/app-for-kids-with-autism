@@ -267,7 +267,7 @@ public class Screen1 extends Screen  {
             if(lecture6==0 && myHack6>=21 && question1==1) {
                 myHack7=24; myHack9=24; myHack11=24; myHack15=24; myHack17=24; myHack19=24;myHack21=24;
                 if(object1GotHit() && question1==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question1=0;
@@ -300,7 +300,7 @@ public class Screen1 extends Screen  {
             if(lecture8==0 && myHack8>=25 && question2==1) {
                 myHack9=20; myHack11=20; myHack15=20; myHack17=20; myHack19=20;myHack21=20;
                 if(object2GotHit() && question2==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question2=0;
@@ -336,7 +336,7 @@ public class Screen1 extends Screen  {
             if(lecture10==0 && myHack10>=25 && question3==1) {
                 myHack11=20; myHack15=20; myHack17=20; myHack19=20;myHack21=20;
                 if(object3GotHit() && question3==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question3=0;
@@ -370,7 +370,7 @@ public class Screen1 extends Screen  {
             if(lecture12==0 && myHack12>=25 && question4==1) {
                 myHack15=34; myHack17=34; myHack19=34;myHack21=34;
                 if(object4GotHit() && question4==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     question4=0;
                     score=score+30;
                     rightanswers++;
@@ -382,7 +382,8 @@ public class Screen1 extends Screen  {
 
                 }
                 if((object2GotHit() || object3GotHit() || object1GotHit()) && question4==1){
-                    hand.voice_false.play(1);
+                    //hand.voice_false.play(1);
+
                     score=score-10;
                     falseanswers++;
                     mX = 0;
@@ -497,7 +498,7 @@ public class Screen1 extends Screen  {
             if(lecture16==0 && myHack16>=65 && question5==1) {
                 myHack17=60; myHack19=60;myHack21=60;
                 if(object1GotHit() && question5==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question5=0;
@@ -529,7 +530,7 @@ public class Screen1 extends Screen  {
             if(lecture18==0 && myHack18>=65 && question6==1) {
                 myHack19=60; myHack21=60;
                 if(object2GotHit() && question6==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question6=0;
@@ -565,7 +566,7 @@ public class Screen1 extends Screen  {
             if(lecture20==0 && myHack20>=65 && question7==1) {
                 myHack21=60;
                 if(object3GotHit() && question7==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question7=0;
@@ -597,7 +598,7 @@ public class Screen1 extends Screen  {
             myHack21++;
             if(lecture22==0 && myHack22>=65 && question8==1) {
                 if(object4GotHit() && question8==1){
-                    hand.voice_right.play(1);
+                    hand.voice_right.start();
                     score=score+30;
                     rightanswers++;
                     question8=0;
@@ -622,10 +623,10 @@ public class Screen1 extends Screen  {
             //___________________________________________________end of questions_____________________________________________________
 
             //_____________________________________enregistrer le score__________________________________________
-           /* if(end==1){
+            if(end==1){
                 Score myscore= new Score(score,rightanswers,falseanswers);
                 Screen1.database._Dao()._add_score(myscore);
-            }*/
+            }
             //____________________________________end of score
 
 

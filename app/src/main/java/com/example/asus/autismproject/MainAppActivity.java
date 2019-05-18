@@ -4,7 +4,6 @@ import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +11,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 
-
+import com.e_mobadara.audiomanaging.AudioSettingsActivity;
 import com.example.asus.autismproject.DAO.Database;
+import com.example.ensias_auth_library.FoxyAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainAppActivity extends AppCompatActivity {
 
 
     public static Database database;
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_app_main);
+        FoxyAuth.emerge(this,MainAppActivity.class);
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "object").allowMainThreadQueries().build();
        /* ConstraintLayout constraintLayout =findViewById(R.id.layout);
         AnimationDrawable animationDrawable =(AnimationDrawable) constraintLayout.getBackground();
@@ -59,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
          this.startActivity(intent1);
 
     }
+    public void abtus(View view) {
+        Intent intent1=new Intent(this, AboutTheGame.class);
+        this.startActivity(intent1);
+
+    }
     private Handler handler;
 
     private void showButtons(){
@@ -79,5 +85,10 @@ public class MainActivity extends AppCompatActivity {
         }, 2400);
 
 
+    }
+
+    public void settingsAudio(View view) {
+        Intent intent1=new Intent(this, AudioSettingsActivity.class);
+        this.startActivity(intent1);
     }
 }

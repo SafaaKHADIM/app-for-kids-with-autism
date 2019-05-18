@@ -15,7 +15,7 @@ public class objectslist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_objectslist);
         TextView mylist =(TextView) this.findViewById(R.id.list1);
-        List<Object> users = MainActivity.database._Dao()._getObject();
+        List<Object> users = MainAppActivity.database._Dao()._getObject();
         String info ="";
         for(Object usr: users){
             String email =usr.getCategorie();

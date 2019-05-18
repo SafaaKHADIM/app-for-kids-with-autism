@@ -6,7 +6,7 @@ android {
         applicationId "com.example.asus.autismproject"
         minSdkVersion 19
         targetSdkVersion 28
-        //   multiDexEnabled true
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,43 +30,66 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     //E-mobadara-lib
     implementation 'com.github.e-mobadara:moblib:v1.2.4'
+
     //ROOM
     implementation 'android.arch.persistence.room:runtime:1.0.0'
     annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
     //VIEW MODEL & LIVE DATA
     implementation 'android.arch.lifecycle:extensions:1.1.0'
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:design:28.0.0-alpha1'
+
     //glide
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
     //younes najjar
-    implementation 'com.github.younesnajjar:foxy-auth:v0.2.0-beta'
+    implementation 'com.github.e-mobadara:foxy-auth:v0.2.1-beta'
+
     //fancy buttons
     implementation 'com.github.medyo:fancybuttons:1.9.1'
     implementation "com.android.support:appcompat-v7:$support_lib_version"
     implementation 'com.beardedhen:androidbootstrap:2.3.1'
+
     // font awesome
     implementation 'info.androidhive:fontawesome:0.0.5'
+
     //compresser image
     implementation 'id.zelory:compressor:2.1.0'
+
     //fot gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
+
     //rotation
     implementation 'com.github.nipun-birla:Swipe3DRotateView:0.0.1'
+
     //buttons
     implementation 'com.github.dmytrodanylyk:android-morphing-button:98a4986e56'
+
     //statistique graph
+
     //implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
     // implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+
     //implementation 'com.jjoe64:graphview:4.2.2'
+
     //json
     implementation 'com.google.code.gson:gson:2.8.5'
+
     //fileutils
     implementation 'org.apache.commons:commons-io:1.3.2'
+
     //recyclereview
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+
     //circle view img
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //tableau personnalise
+    implementation 'com.github.levitnudi:LegacyTableView:1.2'
+    implementation project(':audioModule')
 }

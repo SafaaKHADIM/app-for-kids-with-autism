@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class AudioSettingsActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class AudioSettingsActivity extends AppCompatActivity {
         managing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplication(),MainModuleActivity.class);
+                Intent i = new Intent(getApplication(),MainActivity.class);
                 startActivity(i);
                 finish();
             }

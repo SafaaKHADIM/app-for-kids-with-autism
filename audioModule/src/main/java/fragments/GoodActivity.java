@@ -2,8 +2,10 @@ package fragments;
 
 import android.app.Dialog;
 import android.arch.persistence.room.Room;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,11 +21,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.e_mobadara.Adapter.myAdapter;
 import com.e_mobadara.Database.AudioFile;
 import com.e_mobadara.Database.MyDatabase;
-import com.e_mobadara.audiomanaging.MainModuleActivity;
+import com.e_mobadara.audiomanaging.MainActivity;
 import com.e_mobadara.audiomanaging.R;
 import com.e_mobadara.audiomanaging.addAudioFile;
 import com.e_mobadara.utils.RecyclerItemClickListener;
@@ -34,14 +37,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ExcellentActivity extends Fragment {
-    private  static final String TAG="excellentActivity";
+public class GoodActivity extends Fragment {
+    private  static final String TAG="goodActivity";
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     List<AudioFile> itemsData  = new ArrayList<>();
     RecyclerView recyclerView;
     FloatingActionButton fab;
-    private String current_folder = "excellent";
+    private String current_folder = "good";
     private int _position;
 
     private static final int CURSOR_LOADER_ID = 0;
@@ -53,7 +56,7 @@ public class ExcellentActivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.activity_excellent, container, false);
+        View view = inflater.inflate(R.layout.activity_good, container, false);
 
         Log.d(TAG, " inside_oncreateView");
 
@@ -62,7 +65,7 @@ public class ExcellentActivity extends Fragment {
                 .allowMainThreadQueries()
                 .build();
 
-        fab = view.findViewById(R.id.excellent_fab);
+        fab = view.findViewById(R.id.good_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,25 +76,24 @@ public class ExcellentActivity extends Fragment {
                  */
                 Intent intent = new Intent(getContext(),addAudioFile.class);
                 intent.putExtra("audio_type",current_folder);
-                intent.putExtra("langue",MainModuleActivity.getLangue());
+                intent.putExtra("langue",MainActivity.getLangue());
                 startActivity(intent);
                 getActivity().finish();
             }
         });
 
-
         // 1. get a reference to recyclerView
-        recyclerView =  view.findViewById(R.id.excellent_my_recycler_view);
+        recyclerView =  view.findViewById(R.id.good_my_recycler_view);
         // this is data fr  o recycler view
         /**
          * you need to add audio files here.
          */
 
-
         itemsData = loadDataFromDatabase();
+        Log.d(TAG, itemsData.toString());
 
         /**
-         * you can always add some defaults audio files here
+         * you can always add some default audio files here
          */
         // 2. set layoutManger
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -101,7 +103,7 @@ public class ExcellentActivity extends Fragment {
         recyclerView.setAdapter(mAdapter);
         // 5. set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView = view.findViewById(R.id.excellent_my_recycler_view);
+        mRecyclerView = view.findViewById(R.id.good_my_recycler_view);
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -113,65 +115,65 @@ public class ExcellentActivity extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         recyclerView
                 .addOnItemTouchListener(
-                        new RecyclerItemClickListener(getContext(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-                            @Override public void onItemClick(View view, final int position) {
-                                Log.d(TAG, "RecyclerItemClickListener");
-                                _position = position;
-                                if (mp.isPlaying()) {
-                                    Log.d(TAG, "isplaying");
-                                    if (mp != null) {
-                                        Log.d(TAG, "stoping");
-                                        mp.stop();
-                                        mp.reset();
-                                        //mPlayPause.setImageResource(R.drawable.ic_play);
-                                    }
-                                } else {
-                                    Log.d(TAG, "starting");
-                                    playSong(itemsData.get(_position).getafPath());
-                                    //mPlayPause.setImageResource(R.drawable.ic_stop);
+                new RecyclerItemClickListener(getContext(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, final int position) {
+                        Log.d(TAG, "RecyclerItemClickListener");
+                        _position = position;
+                        if (mp.isPlaying()) {
+                            Log.d(TAG, "isplaying");
+                            if (mp != null) {
+                                Log.d(TAG, "stoping");
+                                mp.stop();
+                                mp.reset();
+                                //mPlayPause.setImageResource(R.drawable.ic_play);
+                            }
+                        } else {
+                            Log.d(TAG, "starting");
+                            playSong(itemsData.get(_position).getafPath());
+                            //mPlayPause.setImageResource(R.drawable.ic_stop);
+                        }
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Log.d(TAG, " onLongItemClick");
+                        _position = position;
+                        /**
+                         * ici on va impléménter le code de suppression d'un fichier audio séléctionné, on va
+                         * supprimer de la base de données, mais dans le dossier e-mobadara il faut tester tout d'abord
+                         * si ce fichier audio est indexé.
+                         */
+                        AlertDialog ad = new AlertDialog.Builder(getContext())
+                                .create();
+                        ad.setCancelable(true);
+                        ad.setTitle("Delete audio file");
+                        ad.setMessage("Are you sure");
+                        ad.setButton(Dialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int which) {
+                                AudioFile i  = itemsData.get(_position);
+                                Log.d(TAG, " deleting audio file.");
+                                if(!checkIfAudioFileIsUsed(i)) {
+                                    File fileToDelete = new File (i.getafPath());
+                                    Log.d(TAG, itemsData.get(_position).getafPath());
+                                    boolean success = fileToDelete.delete();
+                                    Log.d(TAG, success + " : deleted file");
                                 }
+                                /* To query all records */
+                                Log.d(TAG, " delete data from database :");
+                                dbInstance.AudioFileDao()
+                                        .deleteAudioFile(i);
+                                mp.release();
+                                reloadActivity();
                             }
-
-                            @Override
-                            public void onLongItemClick(View view, int position) {
-                                Log.d(TAG, " onLongItemClick");
-                                _position = position;
-                                /**
-                                 * ici on va impléménter le code de suppression d'un fichier audio séléctionné, on va
-                                 * supprimer de la base de données, mais dans le dossier e-mobadara il faut tester tout d'abord
-                                 * si ce fichier audio est indexé.
-                                 */
-                                AlertDialog ad = new AlertDialog.Builder(getContext())
-                                        .create();
-                                ad.setCancelable(true);
-                                ad.setTitle("Delete audio file");
-                                ad.setMessage("Are you sure");
-                                ad.setButton(Dialog.BUTTON_POSITIVE,"OK", new DialogInterface.OnClickListener() {
-
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        AudioFile i  = itemsData.get(_position);
-                                        Log.d(TAG, " deleting audio file.");
-                                        if(!checkIfAdioFileIsUsed(i)) {
-                                            File fileToDelete = new File (i.getafPath());
-                                            Log.d(TAG, itemsData.get(_position).getafPath());
-                                            boolean success = fileToDelete.delete();
-                                            Log.d(TAG, success + " : deleted file");
-                                        }
-                                        /* To query all records */
-                                        Log.d(TAG, " delete data from database :");
-                                        dbInstance.AudioFileDao()
-                                                .deleteAudioFile(i);
-                                        mp.release();
-                                        reloadActivity();
-                                    }
-                                });
-                                ad.show();
-                            }
-                        }));
+                        });
+                        ad.show();
+                    }
+                }));
         return view;
     }
 
-    private boolean checkIfAdioFileIsUsed(AudioFile i) {
+    private boolean checkIfAudioFileIsUsed(AudioFile i) {
         /* To query all records */
         Log.d(TAG, " fetching data from database :");
         List<AudioFile> afs = dbInstance.AudioFileDao().getAudioFiles();
@@ -184,15 +186,16 @@ public class ExcellentActivity extends Fragment {
     }
 
     void reloadActivity(){
-        Intent intent = new Intent(getContext(),MainModuleActivity.class);
-        intent.putExtra("langue",MainModuleActivity.getLangue());
+        Intent intent = new Intent(getContext(),MainActivity.class);
+        intent.putExtra("langue",MainActivity.getLangue());
         startActivity(intent);
+        mp.release();
         getActivity().finish();
     }
     List<AudioFile> loadDataFromDatabase() {
         /* To query all records */
         Log.d(TAG, " fetching data from database :");
-        List<AudioFile> afs = dbInstance.AudioFileDao().getAudioFilesType(current_folder, MainModuleActivity.getLangue());
+        List<AudioFile> afs = dbInstance.AudioFileDao().getAudioFilesType(current_folder, MainActivity.getLangue());
         final List<AudioFile> audioFile = new ArrayList<>();
         //AudioFile e = new AudioFile(...) ;
         //dbInstance.etabDao().addAudioFile(e);
@@ -205,6 +208,7 @@ public class ExcellentActivity extends Fragment {
                 dbInstance.AudioFileDao()
                         .deleteAudioFile(af);
             }
+            
         }
         return audioFile;
     }

@@ -4,6 +4,8 @@ import android.arch.persistence.room.Room;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.example.asus.autismproject.DAO.Database;
 import com.example.asus.autismproject.DAO.Score;
@@ -12,11 +14,12 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 */
-import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreV extends AppCompatActivity {
     public static Database database;
+    private TableLayout tableLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,40 +28,26 @@ public class ScoreV extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
         database = Room.databaseBuilder(getApplicationContext(), com.example.asus.autismproject.DAO.Database.class, "score").allowMainThreadQueries().build();
-        // in this example, a LineChart is initialized from xml
-      /*  LineChart chart = (LineChart) findViewById(R.id.chart);
+
+
+        TextView mylist =(TextView) this.findViewById(R.id.textView8);
+        List<Score> scores = MainAppActivity.database._Dao()._getScore();
+        String info ="";
+        for(Score scr: scores){
+            int id =scr.get_id();
+            String categorie =scr.get_category();
+            int score =scr.get_score();
+            int rightanswer =scr.getRightanswers();
+            int falseanswer =scr.getFalseanswers();
+
+            info=info+"\n\n\n______________"+"id :"+ id +"_____________"+"\n score :"+ score+"\n right answers :"+ rightanswer+"\n false answers :"+ falseanswer;
 
 
 
-
-        ///adding data
-
-        List<Score> scr =ScoreV.database._Dao()._getScore();
-        List<Entry> entries = new ArrayList<Entry>();
-        for (Score data : scr) {
-            // turn your data into Entry objects
-            entries.add(new Entry(data.get_id(), data.get_score()));
         }
 
-
-        LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
-        dataSet.setColor(5);
-        dataSet.setValueTextColor(10); // styling, ...
-        LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-        chart.invalidate(); // refresh
+        mylist.setText(info);
 
 
-*/
     }
-
-
-
-
-
-
-
-
-
-
 }
