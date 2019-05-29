@@ -26,8 +26,14 @@ import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Components.Sprite;
+import com.example.ensias_auth_library.FoxyAuth;
+import com.example.ensias_auth_library.models.GameStat;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class Screen1 extends Screen  {
@@ -110,6 +116,7 @@ public class Screen1 extends Screen  {
     int i=4;
     Random rand = new Random();
     int number1 = rand.nextInt(i);
+    GameStat gameStat = new GameStat();
 
 
     private ArrayList<Sprite> sprites;
@@ -148,6 +155,18 @@ public class Screen1 extends Screen  {
         addSprite(myobject13);
         addSprite(myobject14);
         addSprite(direction_main);
+        String pattern = "MM/dd/yyyy HH:mm:ss";
+
+
+        DateFormat df = new SimpleDateFormat(pattern);
+
+
+        Date today = Calendar.getInstance().getTime();
+
+        String todayAsString = df.format(today);
+
+
+        gameStat.setCreated_at(todayAsString);
 
 
         Log.d(TAG, "Constructor Called");
@@ -624,6 +643,37 @@ public class Screen1 extends Screen  {
 
             //_____________________________________enregistrer le score__________________________________________
             if(end==1){
+                //GameStat gameStat = new GameStat();
+
+
+                gameStat.setApp_id("2019_2_6_1");
+                gameStat.setExercise_id("T_6_11");
+                gameStat.setLevel_id("2");
+
+                /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Date date = new Date();*/
+
+                String pattern = "MM/dd/yyyy HH:mm:ss";
+
+
+                DateFormat df = new SimpleDateFormat(pattern);
+
+
+                Date today = Calendar.getInstance().getTime();
+
+                String todayAsString = df.format(today);
+                gameStat.setUpdated_at(todayAsString);
+
+               // gameStat.setCreated_at("2019-05-10 23:40:00");
+                gameStat.setSuccessful_attempts(String.valueOf(rightanswers));
+                gameStat.setFailed_attempts(String.valueOf(falseanswers));
+                gameStat.setMin_time_succeed_sec(String.valueOf(score*2));
+                gameStat.setAvg_time_succeed_sec(String.valueOf(score));
+                gameStat.setLongitude("33.9843118");
+                gameStat.setLatitude("-6.8697959");
+
+
+                FoxyAuth.storeGameStat(context,gameStat);
                 Score myscore= new Score(score,rightanswers,falseanswers);
                 Screen1.database._Dao()._add_score(myscore);
             }

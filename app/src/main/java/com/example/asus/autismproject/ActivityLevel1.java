@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -40,6 +41,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
 
@@ -51,6 +53,7 @@ public class ActivityLevel1 extends AndroidGame {
     public static Database database;
     private Context context;
     public String category;
+    public String lang;
 
 
     @Override
@@ -172,7 +175,19 @@ public class ActivityLevel1 extends AndroidGame {
         //hand
         hand.avatar = getGraphics().newImage(R.drawable.hand,Graphics.ImageFormat.ARGB8888,getResources());
        // hand.voice_right =  (AndroidSound) getAudio().createSound(R.raw.tres_bien);
-        hand.voice_right= moblibAudioFileManager.getRandomAudioFile(this,"good","AR");
+       if( Locale.getDefault().getLanguage().equals("ar")){
+           lang="AR";
+       }
+        if( Locale.getDefault().getLanguage().equals("en")){
+            lang="An";
+        }
+        if( Locale.getDefault().getLanguage().equals("fr")){
+            lang="FR";
+        }
+        hand.voice_right= moblibAudioFileManager.getRandomAudioFile(this,"good",lang);
+        if( hand.voice_right==null){
+            hand.voice_right=MediaPlayer.create(this,R.raw.tres_bien);
+        }
         hand.voice_false =  (AndroidSound) getAudio().createSound(R.raw.create);
         //background
         background.avatar= getGraphics().newImage(R.drawable.board1,Graphics.ImageFormat.ARGB8888,getResources());
