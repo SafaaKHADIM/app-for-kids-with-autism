@@ -96,7 +96,41 @@ public class ActivityCategory extends AppCompatActivity {
          Intent intent1=new Intent(this, Levels.class);
         intent1.putExtra("category",category);
         Log.e("safaa", "category: "+category);
-        this.startActivity(intent1);
+
+
+
+
+
+
+
+        List<Object> objects1 = ActivityCategory.database._Dao()._getObject();
+        ArrayList<Object> objcts= new ArrayList<Object>();
+        for(Object obj: objects1){
+
+            String cat =obj.getCategorie() ;
+            if(cat.equals(category) ){
+                objcts.add(obj);
+
+            }
+
+
+
+        }
+
+
+        int i= objcts.size();
+        if(i<4){
+            Toast.makeText(this,"vous n'avez pas suffisement d'objet dans cette catégorie vous devez les ajouter ",Toast.LENGTH_LONG).show();
+            Intent intent2=new Intent(this, AddObject.class);
+            this.startActivity(intent2);
+
+        }
+
+
+
+
+else{
+        this.startActivity(intent1);}
 
 
 
