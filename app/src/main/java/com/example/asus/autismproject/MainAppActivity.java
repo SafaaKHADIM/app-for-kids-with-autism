@@ -87,8 +87,5 @@ public class MainAppActivity extends AppCompatActivity {
 
     }
 
-    public void settingsAudio(View view) {
-        Intent intent1=new Intent(this, AudioSettingsActivity.class);
-        this.startActivity(intent1);
-    }
+
 }

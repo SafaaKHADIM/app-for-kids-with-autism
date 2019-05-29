@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.e_mobadara.audiomanaging.AudioSettingsActivity;
+
 public class ActivitySettings extends AppCompatActivity {
 
     @Override
@@ -45,6 +47,10 @@ public class ActivitySettings extends AppCompatActivity {
         Intent intent1=new Intent(this, ScoreV.class);
         this.startActivity(intent1);
 
+    }
+    public void settingsAudio(View view) {
+        Intent intent1=new Intent(this, AudioSettingsActivity.class);
+        this.startActivity(intent1);
     }
     private Handler handler;
 
